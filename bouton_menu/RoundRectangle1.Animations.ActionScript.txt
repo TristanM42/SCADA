@@ -1,0 +1,31 @@
+if hightLight then 
+	displayed = not displayed; 'not working for new window : displayed is also set in script onPageChange
+
+else 
+
+	displayed = false;
+	'hightLight = true; 'won't work here, because new window has another instance of button
+	
+	if nextTab<>"" then
+		InTouch:nextTab = nextTab;
+	endif;
+
+	if menu_v then 
+		Dim graphicInfo as aaGraphic.GraphicInfo;
+		graphicInfo.Identity = graphictoDisplay;
+		graphicInfo.GraphicName = graphictoDisplay;
+		graphicInfo.Resizable = false;
+		graphicInfo.HasTitleBar = false;
+		'graphicInfo.RelativeTo = 2;
+
+		graphicInfo.X = X + 10;
+		graphicInfo.Y = Y;
+		graphicInfo.WindowRelativePosition = 6;
+		'graphicInfo.Width = 185;
+		
+		ShowGraphic( graphicInfo );
+	else 
+		InTouch:Page_name = pageTogo;
+	endif;
+
+endif;

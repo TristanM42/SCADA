@@ -1,0 +1,131 @@
+Expression :    clicked
+Déclencheur :   Tant que vrai
+    Période :   500
+Bande morte :   0
+
+'==================== DOC ====================
+' Read a file and parse each line into values and then bind to their tag names. The tag names must be ordered like the values.
+' The function stops when EOF is found.
+' Warning : due to string limitation, maximum line size cannot be bigger than 254 caracters, so we estimated a maximum of 32 fields per line.
+
+' Example :
+'     ParametresGlobaux
+'     Nombre de sacs de Sodium de Nitrite maximal|n_smax|6
+'     Volume maximal de GA2|v_total|940
+'     ParametresRecette
+'     Recipe description|v_w|v_g
+'     Tank 7220 Summer|845|0
+'     Tank 7220 Cold|558|287
+'     Tank 7220 Winter|414|431
+' v_w is second element of the line, so it matches the second value of wanted recipe, so 845, 558 or 414
+
+' input :
+'   - filepath : file path
+'   - recipe : name of the recipe to find
+' output : (tags)
+'   - read_OK : true when data is done reading (once per file)
+' internal :
+'   - clicked : always true on first call, set to false when all lines are read
+'   - line : current number for line (start at 0)
+'   - cpt : current number for field (token)
+'=============================================
+
+dim sr as System.IO.StreamReader;
+dim lineString as string;
+dim tagFullName as string;
+dim currentSection as string;
+dim tagName as indirect;
+dim line as integer;
+dim recipeHeaderLine as integer;
+dim tagNamesArray[32] as string;
+dim s as string;
+dim globalParamName as string;
+
+clicked_cnt = clicked_cnt + 1;
+
+if clicked_cnt == 1 then
+    sr = System.IO.File.OpenText(filepath);
+    while sr.Peek() > -1
+        lineString = sr.ReadLine();
+
+        ' Parse la chaine de caractere
+
+        dim Pos = 0;
+        dim Token = "";
+        dim cpt = 1;
+
+        ' Search for separator and process text before it
+        Pos = StringInString(lineString, separator, 1, 0);
+        if Pos==0 then
+            if lineString=="ParametresGlobaux" then
+                currentSection = "ParametresGlobaux";
+            endif;
+            if lineString=="ParametresRecette" then
+                currentSection = "ParametresRecette";
+                recipeHeaderLine = line;
+            endif;
+            lineString = "";
+        endif;
+        
+        WHILE (lineString <> "")        
+            ' Extract token
+            Token = StringLeft(lineString, Pos - 1);
+            
+            if currentSection=="ParametresGlobaux" then
+                if cpt==2 then
+                    globalParamName = Token;
+                elseif cpt==3 then
+                    tagFullName = "InTouch:" + globalParamName;	
+                    tagName.BindTo(tagFullName);
+                    tagName = Token;
+                endif;
+            elseif currentSection=="ParametresRecette" then
+                ' Initialize tag names array
+                if line==recipeHeaderLine+1 then
+                    tagNamesArray[cpt] = Token;
+                elseif cpt==1 and Token<>recipe then
+                    exit while;
+                endif;
+                
+                ' Bind each value to same index in tag names array
+                if line>recipeHeaderLine+1 then
+                    if cpt > 1 then
+                        tagFullName = "InTouch:" + tagNamesArray[cpt];
+                        tagName.BindTo(tagFullName);
+                        tagName = Token;    'TODO : convertir la string selon le type du tag
+                    endif;
+                endif;
+            else
+                exit while;
+            endif;
+
+            ' Remove token + separator
+            lineString = StringRight(lineString, StringLen(lineString) - Pos);
+            
+            ' If no separator remains, allow a last loop, else set string to empty
+            if Pos==0 then
+                lineString = "";
+            endif;
+            Pos = StringInString(lineString, separator, 1, 0);
+            cpt = cpt + 1;
+        ENDWHILE;
+
+        line = line + 1;
+    endwhile;
+
+    sr.Close();
+    
+    next;
+    
+endif;
+
+if clicked_cnt == 2 then
+    LogMessage("n_smax = " + InTouch:n_smax);
+    LogMessage("v_total = " + InTouch:v_total);
+	LogMessage("v_w = " + InTouch:v_w);
+	LogMessage("v_g = " + InTouch:v_g);
+    clicked_cnt = 0;    
+    clicked = false;
+    line = 0;
+    read_OK = true;
+endif;

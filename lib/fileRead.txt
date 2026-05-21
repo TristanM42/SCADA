@@ -1,0 +1,127 @@
+Expression :    clicked
+Déclencheur :   Tant que vrai
+    Période :   500
+Bande morte :   0
+
+'==================== DOC ====================
+' Read a file and parse each line into fields as custom properties. The function stops when after reading lines "linesToRead" times (or (TODO) : once EOF is found).
+
+' Example of handling the output in another script :
+'   Condition : If true : testCSV1.read_OK
+'   if testCSV1.line == 1 then
+'	    RecipeString.Text = testCSV1.field0;
+'	    RecipeQuantity.Text = testCSV1.field1;
+'   endif;
+
+' input :
+'   - filepath : file path
+'   - linesToRead : number of lines to read
+' output : (custom properties)
+'   - field0, field1, ... : string properties of parsed line
+'   - read_OK : true when data is done reading (per line)
+'   - line : current line number (custom property), not used in this script but is needed when handling the output in another script.
+' internal :
+'   - offset : current position
+'   - clicked : always true on first call, set to false when all lines are read
+'=============================================
+
+dim MsgTag;
+dim temp_offset;
+read_OK = false;
+'MsgTag = 'MsgTag ou "InTouch:MsgTag";
+
+temp_offset = FileReadMessage(filepath,offset,"InTouch:MsgTag",0);
+
+clicked_cnt = clicked_cnt + 1;
+
+if clicked_cnt >= 2 then
+    LogMessage("DEBUG : MsgTag = " + InTouch:MsgTag);
+    offset = temp_offset;
+    
+    'Parse line :
+    
+    dim Pos = 0;
+    dim Token = "";
+    dim cpt = 0;
+    
+    ' Search for separator and process text before it
+    Pos = StringInString(InTouch:MsgTag, separator, 1, 0);
+    LogMessage("The Value of Pos is " + Pos);
+    WHILE (Pos > 0)
+        ' Extract token
+        Token = StringLeft(InTouch:MsgTag, Pos - 1);
+    
+        ' Store or use the token
+        if cpt==0 then
+            field0 = Token;
+        elseif cpt==1 then
+            field1 = Token;
+        elseif cpt==2 then
+            field2 = Token;
+        elseif cpt==3 then
+            field3 = Token;
+        elseif cpt==4 then
+            field4 = Token;
+        elseif cpt==5 then
+            field5 = Token;
+        elseif cpt==6 then
+            field6 = Token;
+        elseif cpt==7 then
+            field7 = Token;
+        elseif cpt==8 then
+            field8 = Token;
+        elseif cpt==9 then
+            field9 = Token;
+        endif;
+        
+        ' testParams1 :
+        'if cpt == 2 then
+        '    SetCustomPropertyValue("field2", "field1", 0);
+        'endif;
+    
+        ' Remove token + separator
+        InTouch:MsgTag = StringRight(InTouch:MsgTag, StringLen(InTouch:MsgTag) - Pos);
+        LogMessage("The Value of InTouch:MsgTag is " + InTouch:MsgTag);
+        
+        Pos = StringInString(InTouch:MsgTag, separator, 1, 0);
+        cpt = (cpt + 1) MOD 10;
+    ENDWHILE;
+    
+    ' Last token is the last string :
+    if cpt==0 then
+        field0 = InTouch:MsgTag;
+    elseif cpt==1 then
+        field1 = InTouch:MsgTag;
+    elseif cpt==2 then
+        field2 = InTouch:MsgTag;
+    elseif cpt==3 then
+        field3 = InTouch:MsgTag;
+    elseif cpt==4 then
+        field4 = InTouch:MsgTag;
+    elseif cpt==5 then
+        field5 = InTouch:MsgTag;
+    elseif cpt==6 then
+        field6 = InTouch:MsgTag;
+    elseif cpt==7 then
+        field7 = InTouch:MsgTag;
+    elseif cpt==8 then
+        field8 = InTouch:MsgTag;
+    elseif cpt==9 then
+        field9 = InTouch:MsgTag;
+    endif;
+    
+    LogMessage("The Value of field0 is " + field0);
+    LogMessage("The Value of field1 is " + field1);
+    LogMessage("The Value of field2 is " + field2);
+    LogMessage("The Value of field3 is " + field3);
+    
+    clicked_cnt = 0;
+    line = line + 1;
+    read_OK = true;
+endif;
+
+if line >= linesToRead then
+    offset = 0;
+    line = 0;
+    clicked = false;
+endif;

@@ -1,0 +1,31 @@
+Expression :    display
+Déclencheur :   Tant que vrai
+    Période :   1000
+Bande morte :   0
+
+
+display = false;
+
+dim graphicInfo as aaGraphic.GraphicInfo;
+
+graphicInfo.Identity = "I_"+TagRef;
+
+graphicInfo.GraphicName = "Analog_Input_Popup";
+
+graphicInfo.WindowTitle = "Analog Input Popup: "+TagRef;
+graphicInfo.HasTitleBar = false;
+'graphicInfo.HasCloseButton = false;
+
+'graphicInfo.WindowLocation = aaGraphic.WindowLocation.RightOf;
+
+'graphicInfo.WindowRelativePosition = aaGraphic.WindowRelativePosition.ParentElement;
+
+Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
+
+cpValues[1] = new aaGraphic.CustomPropertyValuePair("TagRef", TagRef, true);
+'cpValues[2] = new aaGraphic.CustomPropertyValuePair("Precision", Precision, True);
+cpValues[3] = new aaGraphic.CustomPropertyValuePair("Access_Name", Access_Name, true);
+
+graphicInfo.CustomProperties = cpValues;
+
+ShowGraphic( graphicInfo );

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="blow-abstract-air.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch12"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop12" />
+    </linearGradient>
+    <linearGradient
+       id="swatch1"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#f2f2f2;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.00875"
+     inkscape:cx="399.50434"
+     inkscape:cy="320.69393"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <rect
+     width="16"
+     height="16"
+     id="icon-bound"
+     fill="none" />
+  <path
+     d="M 8,3 C 8,1.344 6.656,0 5,0 3.344,0 2,1.344 2,3 H 4 C 4,2.45 4.45,2 5,2 5.55,2 6,2.45 6,3 6,3.55 5.55,4 5,4 H 0 V 6 H 5 C 6.656,6 8,4.656 8,3 Z M 12,1 C 9.791,1 8,2.791 8,5 v 1 h 2 V 5 c 0,-1.103 0.897,-2 2,-2 1.103,0 2,0.897 2,2 0,1.103 -0.897,2 -2,2 H 1 V 9 H 12.5 V 8.969 C 14.472,8.722 16,7.041 16,5 16,2.791 14.209,1 12,1 Z M 9,10 H 2 v 2 h 7 c 0.55,0 1,0.45 1,1 0,0.55 -0.45,1 -1,1 C 8.45,14 8,13.55 8,13 H 6 c 0,1.656 1.344,3 3,3 1.656,0 3,-1.344 3,-3 0,-1.656 -1.344,-3 -3,-3 z"
+     id="path1"
+     style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#d5d5d5;stroke-width:0.4;stroke-dasharray:3.20000005,1.20000002;stroke-linejoin:round;stroke-linecap:round;paint-order:normal;stroke-dashoffset:7.72000012;stroke-opacity:1" />
+</svg>

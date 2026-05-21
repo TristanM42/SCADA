@@ -1,0 +1,11 @@
+Expression :    InTouch:Page_name
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+if highLightGroup==false then
+	if InTouch:Page_name==pageTogo then
+		hightLight = true;
+	else
+		hightLight = false;
+	endif;
+endif;

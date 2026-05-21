@@ -1,0 +1,44 @@
+dim Nom as string;
+
+'PV tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".Q_wStatus";
+else
+	Nom = "InTouch:"+TagRef+".Q_wStatus";	
+endif;
+SetCustomPropertyValue("wStatus",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_xClose_Manu";
+else
+	Nom = "InTouch:"+TagRef+".i_xClose_Manu";	
+endif;
+SetCustomPropertyValue("Close_Manu",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_xOpen_Manu";
+else
+	Nom = "InTouch:"+TagRef+".i_xOpen_Manu";	
+endif;
+SetCustomPropertyValue("Open_Manu",Nom,0);
+
+
+
+
+'Inhibit tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".I_xInhibit";
+else
+	Nom = "InTouch:"+TagRef+".I_xInhibit";	
+endif;
+SetCustomPropertyValue("Inhibit",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".I_wValve_Failure_Time";
+else
+	Nom = "InTouch:"+TagRef+".I_wValve_Failure_Time";	
+endif;
+SetCustomPropertyValue("Valve_Failure_Time",Nom,0);

@@ -1,0 +1,13 @@
+dim app as object;
+dim wb as object;
+dim ws as object;
+app = CreateObject("Excel.Application");
+app.Visible=true;
+wb = app.Workbooks.Open("C:\documents\sample.xlsx");
+ws = wb.ActiveSheet;
+ws.Range("A1").Value = 100;
+ws.Range("A2").Value = 200;
+ws.Range("A3").Value = "=A1*A2";
+LogMessage(ws.Range("A3").Value);
+wb.Visible=true;
+wb.Close(false);

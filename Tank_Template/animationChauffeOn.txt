@@ -1,0 +1,20 @@
+Expression :    chauffeOn
+Déclencheur :   Tant que vrai
+    Période :   100
+Bande morte :   0
+
+
+dim nbSecondes = 1;
+
+' Animation de nbSecondes
+dim nbStepsHeat = nbSecondes*1000/100;
+
+current_Step_Heat = current_Step_Heat + 1;
+dim chauffeOp = 100*(nbStepsHeat - current_Step_Heat)/nbStepsHeat;
+
+' Si animationChauffeOff a une expression différente, on devra modifier ce script pour empêcher de modifier la chauffe ici
+if chauffeOp <= 0 then
+	chauffe.op = 0;
+else
+	chauffe.op = chauffeOp;
+endif;

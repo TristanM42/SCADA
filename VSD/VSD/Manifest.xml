@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<archestra_pdf_content_version_2_2>
+  <product_version iasversion="23.1.10300" cdiversion="6745.474.4627.2" />
+  <template tag_name="$Symbol" gobjectid="802" file_name="Symbol1.aaPDF" config_version="106" codebase="ArchestrA.Symbol.1" security_group="" area_name="" toolset_name="" cont_name="" host_name="" is_protected="1">
+    <derived_templates />
+    <derived_instances>
+      <instance tag_name="VSD" gobjectid="1615" file_name="1615.txt" config_version="5" codebase="ArchestrA.Symbol.1" security_group="Default" area_name="" toolset_name="EPC$Symbol" cont_name="" host_name="" is_protected="0" />
+      <instance tag_name="Evenemnt" gobjectid="838" file_name="838.txt" config_version="3" codebase="ArchestrA.Symbol.1" security_group="Default" area_name="" toolset_name="EPC$Symbol$icone" cont_name="" host_name="" is_protected="0" />
+    </derived_instances>
+  </template>
+  <IODeviceMap filename="IOBindingExport.xml" />
+  <TotalObjectCount objectcount="3" />
+</archestra_pdf_content_version_2_2>

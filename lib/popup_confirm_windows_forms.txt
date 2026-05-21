@@ -1,0 +1,9 @@
+dim result as System.Windows.Forms.DialogResult;
+result =System.Windows.Forms.MessageBox.Show("Confirmation de selection à 1 Groupe C28 " ,"Confirmation",System.Windows.Forms.MessageBoxButtons.YesNo,System.Windows.Forms.MessageBoxIcon.Question);
+
+if result == System.Windows.Forms.DialogResult.Yes then 
+    CVC281V.DEM_MA=1;
+    CVC282V.DEM_MA=0;
+else
+    CVC281V.DEM_MA=0;
+endif;

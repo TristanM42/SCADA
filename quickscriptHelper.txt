@@ -1,0 +1,33 @@
+Debug
+    Log integer
+        LogMessage("The Value of x is " + Text(x, "#"));
+Arrays
+    Look at project://lib/stringArray.txt
+    3 other possibilities (from Copilot) :
+        Message arrays                  Sometimes       Best option if supported
+        Indirect tags (#Tag[Index])	    Often	        Very flexible
+        Manual sequential tags          Always	        Works everywhere
+String
+    Parsing
+        Look at project://lib/parseScript.txt
+Read and write file
+    dim offset;
+    dim filename;
+    offset = 0;
+    filename = "c:\claii\set.csv";
+
+    'Lit 4 valeurs et écrit la valeur dans 4 tags
+    offset = FileReadFields(filename, offset, "RecipeTag1", 4);
+    LogMessage("Read: " + RecipeTag1 + " | " + RecipeTag2 + " | " + RecipeTag3 + " | " + RecipeTag4);
+
+    'Ecriture dans le fichier : retour à la ligne + tags séparés par des virgules
+    offset = FileWriteMessage (filename, offset, "", 1);
+    offset = FileWriteFields(filename, -1, "RecipeTag1", 4);
+Write a tagname or more dynamically
+    dim tagNamePtr as indirect;
+    dim paramName as string;
+    paramName = "myTagName";
+    
+    tagFullName = "InTouch:" + paramName;	
+    tagNamePtr.BindTo(tagFullName);
+    tagNamePtr = Token;

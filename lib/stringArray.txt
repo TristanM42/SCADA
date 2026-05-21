@@ -1,0 +1,11 @@
+dim numbers[3] as string;
+dim s as string;
+
+numbers[1] = "one";
+numbers[2] = "two";
+numbers[3] = "three";
+LogMessage(numbers[3]);
+
+for each s in numbers[]
+    LogMessage(s);
+next

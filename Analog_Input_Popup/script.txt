@@ -1,0 +1,160 @@
+dim Nom as string;
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_wStatus";
+else
+	Nom = "InTouch:"+TagRef+".q_wStatus";	
+endif;
+SetCustomPropertyValue("wStatus",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput";	
+endif;
+SetCustomPropertyValue("PV",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput.EngUnits";
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput.EngUnits";	
+endif;
+SetCustomPropertyValue("TagUnit",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rMinOut";
+else
+	Nom = "InTouch:"+TagRef+".i_rMinOut";	
+endif;
+SetCustomPropertyValue("Min_Out",Nom,0);
+
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rMaxOut";
+else
+	Nom = "InTouch:"+TagRef+".i_rMaxOut";	
+endif;
+SetCustomPropertyValue("Max_Out",Nom,0);
+
+
+'Precision'
+if Precision == 0 then
+	Text_Value.Text = "#####";
+elseif	Text_Value.Text == 1 then
+	Text_Value.Text = "#####.#";
+elseif	Text_Value.Text == 2 then
+	Text_Value.Text = "####.##";
+elseif	Text_Value.Text == 3 then
+	Text_Value.Text = "##.###";
+endif;
+
+'Alarms SP tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rHH_Threshold";
+else
+	Nom = "InTouch:"+TagRef+".i_rHH_Threshold";	
+endif;
+SetCustomPropertyValue("HiHi_SP",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rH_Threshold";
+else
+	Nom = "InTouch:"+TagRef+".i_rH_Threshold";	
+endif;
+SetCustomPropertyValue("Hi_SP",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rL_Threshold";
+else
+	Nom = "InTouch:"+TagRef+".i_rL_Threshold";	
+endif;
+SetCustomPropertyValue("Lo_SP",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_rLL_Threshold";
+else
+	Nom = "InTouch:"+TagRef+".i_rLL_Threshold";	
+endif;
+SetCustomPropertyValue("LoLo_SP",Nom,0);
+
+
+'Alarms Delay tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_wHH_Delay";
+else
+	Nom = "InTouch:"+TagRef+".i_wHH_Delay";	
+endif;
+SetCustomPropertyValue("HiHi_Delay",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_wH_Delay";
+else
+	Nom = "InTouch:"+TagRef+".i_wH_Delay";	
+endif;
+SetCustomPropertyValue("Hi_Delay",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_wL_Delay";
+else
+	Nom = "InTouch:"+TagRef+".i_wL_Delay";	
+endif;
+SetCustomPropertyValue("Lo_Delay",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_wLL_Delay";
+else
+	Nom = "InTouch:"+TagRef+".i_wLL_Delay";	
+endif;
+SetCustomPropertyValue("LoLo_Delay",Nom,0);
+
+
+
+'Alarms Status tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_xHH_Fault";
+else
+	Nom = "InTouch:"+TagRef+".q_xHH_Fault";	
+endif;
+SetCustomPropertyValue("HiHi_Status",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_xH_Alarm";
+else
+	Nom = "InTouch:"+TagRef+".q_xH_Alarm";	
+endif;
+SetCustomPropertyValue("Hi_Status",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_xL_Alarm";
+else
+	Nom = "InTouch:"+TagRef+".q_xL_Alarm";	
+endif;
+SetCustomPropertyValue("Lo_Status",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_xLL_Fault";
+else
+	Nom = "InTouch:"+TagRef+".q_xLL_Fault";	
+endif;
+SetCustomPropertyValue("LoLo_Status",Nom,0);
+
+
+'Inhibit tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_xInhibit";
+else
+	Nom = "InTouch:"+TagRef+".i_xInhibit";	
+endif;
+SetCustomPropertyValue("Inhibit",Nom,0);
+
+'Direct input'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".i_xDirect_Input";
+else
+	Nom = "InTouch:"+TagRef+".i_xDirect_Input";	
+endif;
+SetCustomPropertyValue("Direct_Input",Nom,0);

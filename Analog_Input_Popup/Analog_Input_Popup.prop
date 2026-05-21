@@ -1,0 +1,23 @@
+{
+  "GraphicVersion": 35,
+  "VisualElementID": 817,
+  "GObjectId": 817,
+  "HelpId": "",
+  "VisualElementName": "Analog_Input_Popup",
+  "IsProtected": false,
+  "ContextObject": "",
+  "TimeStamp": 134122901687989408,
+  "VisualElementType": "Symbol",
+  "Errors": null,
+  "Warnings": null,
+  "AttributeReferences": null,
+  "RuntimeDependencies": null,
+  "ClientControlDependencies": null,
+  "Description": "",
+  "VisualElementReferencesStatus": [],
+  "GraphicChangeType": 1,
+  "ContentType": "",
+  "InternalName": null,
+  "ExternalName": null,
+  "EditorSettings": "BAAAAAoAAAAFAQDT09MAAAAAAQD///8="
+}

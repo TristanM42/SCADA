@@ -1,0 +1,95 @@
+Expression :    clicked
+Déclencheur :   Tant que vrai
+    Période :   500
+Bande morte :   0
+
+'==================== DOC ====================
+' Read a file and parse each line into properties. Then each property will update a tag. The function stops when EOF is found.
+'=============================================
+
+dim sr as System.IO.StreamReader;
+dim lineString as string;
+dim tagFullName as string;
+dim tagName as indirect;
+dim line as integer;
+
+clicked_cnt = clicked_cnt + 1;
+
+if clicked_cnt == 1 then
+	sr = System.IO.File.OpenText(filepath);
+    while sr.Peek() > -1
+        lineString = sr.ReadLine();
+
+        ' Parse la chaine de caractere
+
+        dim Pos = 0;
+        dim Token = "";
+        dim cpt = 0;
+
+        ' Search for separator and process text before it
+        Pos = StringInString(lineString, separator, 1, 0);
+        if Pos==0 then
+            lineString = "";
+        endif;
+        
+        WHILE (lineString <> "")        
+            ' Extract token
+            Token = StringLeft(lineString, Pos - 1);
+
+            ' Store or use the token
+            if cpt==0 then
+                field0 = Token;
+            elseif cpt==1 then
+                field1 = Token;
+            elseif cpt==2 then
+                field2 = Token;
+            elseif cpt==3 then
+                field3 = Token;
+            elseif cpt==4 then
+                field4 = Token;
+            elseif cpt==5 then
+                field5 = Token;
+            elseif cpt==6 then
+                field6 = Token;
+            elseif cpt==7 then
+                field7 = Token;
+            elseif cpt==8 then
+                field8 = Token;
+            elseif cpt==9 then
+                field9 = Token;
+            endif;
+            
+            ' testParams1 et 2:
+            if cpt == 2 then
+                tagFullName = "InTouch:" + field1;	
+                tagName.BindTo(tagFullName);
+                tagName = field2;
+            endif;
+
+            ' Remove token + separator
+            lineString = StringRight(lineString, StringLen(lineString) - Pos);
+            
+            ' If no separator remains, allow a last loop, else set string to empty
+            if Pos==0 then
+                lineString = "";
+            endif;
+            Pos = StringInString(lineString, separator, 1, 0);
+            cpt = cpt + 1;
+        ENDWHILE;
+
+		line = line + 1;
+    endwhile;
+
+    sr.Close();
+endif;
+
+if clicked_cnt == 2 then
+    LogMessage("PARAM1_Int_Test = " + InTouch:PARAM1_Int_Test);
+    LogMessage("PARAM1_Real_Test = " + InTouch:PARAM1_Real_Test);
+    LogMessage("PARAM1_Int_Test2 = " + InTouch:PARAM1_Int_Test2);
+    LogMessage("PARAM1_Real_Test2 = " + InTouch:PARAM1_Real_Test2);
+	clicked_cnt = 0;	
+	clicked = false;
+	line = 0;
+	read_OK = true;
+endif;

@@ -1,0 +1,42 @@
+Expression :    InTouch:Page_name
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+dim scriptWindow;
+GetWindowName("InTouch:MsgTag");
+scriptWindow = InTouch:MsgTag;
+
+if scriptWindow==InTouch:Page_name then
+    displayMenu = false;
+
+    if Header_Menu.Boutons_Menu.1000_liquor.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.1000_liquor.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.2000_oil.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.2000_oil.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.3000_emulsion.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.3000_emulsion.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.4000_blending.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.4000_blending.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.7000_memu.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.7000_memu.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.7100_gassingprep.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.7100_gassingprep.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+    if Header_Menu.Boutons_Menu.9000_utilities.hightLight==true then
+        InTouch:activeTab = Header_Menu.Boutons_Menu.9000_utilities.titre;
+        LogMessage("InTouch:activeTab = " + InTouch:activeTab);
+    endif;
+else
+    Hide(scriptWindow);
+endif;

@@ -1,0 +1,77 @@
+' Parse la chaine de caractere
+'input :
+'    - MyString
+'output : (custom properties)
+'    - field0
+'    - field1
+'    - field2
+'    - field3
+'    - field4
+'    - field5
+'    - field6
+'    - field7
+'    - field8
+'    - field9
+
+dim MyString = "Test A,Test B,Test C,Test D,Test E,Test F,Test G,Test H,Test I,Test J";
+dim Separator = ",";
+dim Pos = 0;
+dim Token = "";
+dim cpt = 0;
+
+' Search for separator and process text before it
+Pos = StringInString(MyString, Separator, 1, 0);
+LogMessage("The Value of Pos is " + Pos);
+if Pos==0 then
+    lineString = "";
+endif;
+
+WHILE (lineString <> "")
+    ' Extract token
+    Token = StringLeft(MyString, Pos - 1);
+
+    ' Store or use the token
+    if cpt==0 then
+        field0 = Token;
+    elseif cpt==1 then
+        field1 = Token;
+    elseif cpt==2 then
+        field2 = Token;
+    elseif cpt==3 then
+        field3 = Token;
+    elseif cpt==4 then
+        field4 = Token;
+    elseif cpt==5 then
+        field5 = Token;
+    elseif cpt==6 then
+        field6 = Token;
+    elseif cpt==7 then
+        field7 = Token;
+    elseif cpt==8 then
+        field8 = Token;
+    elseif cpt==9 then
+        field9 = Token;
+    endif;
+
+    ' Remove token + separator
+    MyString = StringRight(MyString, StringLen(MyString) - Pos);
+    LogMessage("The Value of MyString is " + MyString);
+    
+    ' If no separator remains, allow a last loop, else set string to empty
+    if Pos==0 then
+        MyString = "";
+    endif;
+    Pos = StringInString(MyString, Separator, 1, 0);
+    cpt = cpt + 1;
+ENDWHILE;
+
+LogMessage("The Value of field0 is " + field0);
+LogMessage("The Value of field1 is " + field1);
+LogMessage("The Value of field2 is " + field2);
+LogMessage("The Value of field3 is " + field3);
+LogMessage("The Value of field4 is " + field4);
+LogMessage("The Value of field5 is " + field5);
+LogMessage("The Value of field6 is " + field6);
+LogMessage("The Value of field7 is " + field7);
+LogMessage("The Value of field8 is " + field8);
+LogMessage("The Value of field9 is " + field9);

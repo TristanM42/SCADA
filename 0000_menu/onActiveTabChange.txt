@@ -1,0 +1,62 @@
+Expression :    InTouch:activeTab
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+'Active tab changed, so here we know that active tab changed (= late update of onPageChange, triggered by menu_h)
+
+if InTouch:activeTab==Group1.1000_liquor.titre then
+	Group1.1000_liquor.hightLight = true;
+    LogMessage("Group1.1000_liquor.hightLight = " + Group1.1000_liquor.hightLight);
+else
+	Group1.1000_liquor.hightLight = false;
+    LogMessage("Group1.1000_liquor.hightLight = " + Group1.1000_liquor.hightLight);
+endif;
+if InTouch:activeTab==Group1.2000_oil.titre then
+	Group1.2000_oil.hightLight = true;
+    LogMessage("Group1.2000_oil.hightLight = " + Group1.2000_oil.hightLight);
+else
+	Group1.2000_oil.hightLight = false;
+    LogMessage("Group1.2000_oil.hightLight = " + Group1.2000_oil.hightLight);
+endif;
+if InTouch:activeTab==Group1.3000_emulsion.titre then
+	Group1.3000_emulsion.hightLight = true;
+    LogMessage("Group1.3000_emulsion.hightLight = " + Group1.3000_emulsion.hightLight);
+else
+	Group1.3000_emulsion.hightLight = false;
+    LogMessage("Group1.3000_emulsion.hightLight = " + Group1.3000_emulsion.hightLight);
+endif;
+if InTouch:activeTab==Group1.4000_blending.titre then
+	Group1.4000_blending.hightLight = true;
+    LogMessage("Group1.4000_blending.hightLight = " + Group1.4000_blending.hightLight);
+else
+	Group1.4000_blending.hightLight = false;
+    LogMessage("Group1.4000_blending.hightLight = " + Group1.4000_blending.hightLight);
+endif;
+if InTouch:activeTab==Group1.7000_memu.titre then
+	Group1.7000_memu.hightLight = true;
+    LogMessage("Group1.7000_memu.hightLight = " + Group1.7000_memu.hightLight);
+else
+	Group1.7000_memu.hightLight = false;
+    LogMessage("Group1.7000_memu.hightLight = " + Group1.7000_memu.hightLight);
+endif;
+if InTouch:activeTab==Group1.7100_gassingprep.titre then
+	Group1.7100_gassingprep.hightLight = true;
+    LogMessage("Group1.7100_gassingprep.hightLight = " + Group1.7100_gassingprep.hightLight);
+else
+	Group1.7100_gassingprep.hightLight = false;
+    LogMessage("Group1.7100_gassingprep.hightLight = " + Group1.7100_gassingprep.hightLight);
+endif;
+if InTouch:activeTab==Group1.9000_utilities.titre then
+	Group1.9000_utilities.hightLight = true;
+    LogMessage("Group1.9000_utilities.hightLight = " + Group1.9000_utilities.hightLight);
+else
+	Group1.9000_utilities.hightLight = false;
+    LogMessage("Group1.9000_utilities.hightLight = " + Group1.9000_utilities.hightLight);
+endif;
+if InTouch:activeTab==Group1.10000_Maintenance.titre then
+	Group1.10000_Maintenance.hightLight = true;
+    LogMessage("Group1.10000_Maintenance.hightLight = " + Group1.10000_Maintenance.hightLight);
+else
+	Group1.10000_Maintenance.hightLight = false;
+    LogMessage("Group1.10000_Maintenance.hightLight = " + Group1.10000_Maintenance.hightLight);
+endif;
