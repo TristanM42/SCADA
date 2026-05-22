@@ -4,10 +4,6 @@ Bande morte :   0
 
 LogMessage("DEBUG Recipes_GA2 : changement de page bien détecté même en popup (Show symbol).");
 
-' Force onDisplayChg to reset menus visibility
-displayed = true;
-displayed = false;
-
 ' Reset buttons states and visibility
 Settings.bouton_Full_Batch.hightLight = false;
 Settings.bouton_Set_Recipe.hightLight = false;

@@ -1,6 +1,0 @@
-Expression :    displayed
-Déclencheur :   Changement de valeur
-Bande morte :   0
-
-Tank_Menu.7212_Tank.Visible = false;
-Tank_Menu.7220_Tank.Visible = false;

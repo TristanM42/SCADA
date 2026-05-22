@@ -17,10 +17,6 @@ else
 endif;
 SetCustomPropertyValue("q_rOutput",Nom,0);}
 
-' Force onDisplayChg to reset menus visibility
-displayed = true;
-displayed = false;
-
 ' Reset buttons states and visibility
 Settings.bouton_Full_Batch.hightLight = false;
 Settings.bouton_Set_Recipe.hightLight = false;
