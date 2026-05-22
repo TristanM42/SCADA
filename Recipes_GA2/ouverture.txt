@@ -1,0 +1,30 @@
+Délai des données : 500
+
+dim Nom as string;
+
+' Read volume of every Tank
+{if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".PV";
+else
+	Nom = "InTouch:"+TagRef+".PV";	
+endif;
+SetCustomPropertyValue("PV",Nom,0);
+
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput";	
+endif;
+SetCustomPropertyValue("q_rOutput",Nom,0);}
+
+' Force onDisplayChg to reset menus visibility
+displayed = true;
+displayed = false;
+
+' Reset buttons states and visibility
+Settings.bouton_Full_Batch.hightLight = false;
+Settings.bouton_Set_Recipe.hightLight = false;
+Recipe_Menu.Text_Recipe_Label.Visible = false;
+Recipe_Menu.7220_Recipe.Visible = false;
+Recipe_Menu.7212_Recipe.Visible = false;
+Settings.Visible = false;
