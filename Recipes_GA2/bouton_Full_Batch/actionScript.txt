@@ -1,0 +1,6 @@
+Déclencheur :   Bouton gauche/Touche relâchés
+
+dim v_n as integer;
+
+v_n = Tank_Max - GA2_PV;
+Sodium_Nitrite_bags_SP = Trunc(v_n/v_F_bag);

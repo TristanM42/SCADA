@@ -5,7 +5,7 @@ Bande morte :   0
 dim v_total as float; ' reference volume for water + glycol + sodium nitrite
 dim v_w as float; ' reference volume for water
 dim v_g as float; ' reference volume for glycol
-dim v_Q as float; ' quantized final volume (= rounded down)
+dim v_q as float; ' quantized final volume (= rounded down)
 dim v_sn as float; ' reference volume for sodium nitrite
 
 v_total = 940; 'InTouch:
@@ -13,11 +13,12 @@ v_total = 940; 'InTouch:
 v_w = 558; 'InTouch:
 v_g = 287; 'InTouch:
 
-' Calculate v_Q from references (csv data for one tank and one recipe)
+' Calculate v_q from references (csv data for one tank and one recipe)
 v_sn = v_total - (v_w+v_g);
 v_F_bag = v_sn_per_bag * (1+(v_total-v_sn)/v_sn);
-v_Q = Sodium_Nitrite_bags_SP * v_F_bag;
+v_q = Sodium_Nitrite_bags_SP * v_F_bag;
 
-' Calculate the volumes of water and glycol
+' Calculate the volumes of wate, glycol and sodium nitrite
 Water_SP = v_q * v_w/v_total;
-Glycol_SP = v_q * v_g/v_total; 
+Glycol_SP = v_q * v_g/v_total;
+v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
