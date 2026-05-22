@@ -18,6 +18,9 @@ endif;
 SetCustomPropertyValue("q_rOutput",Nom,0);}
 
 ' Reset buttons states and visibility
+Tank_Menu.7220_Tank.hightLight = false;
+Tank_Menu.7212_Tank.hightLight = false;
+TagRef = "";
 Settings.bouton_Full_Batch.hightLight = false;
 Settings.bouton_Set_Recipe.hightLight = false;
 Recipe_Menu.Text_Recipe_Label.Visible = false;
