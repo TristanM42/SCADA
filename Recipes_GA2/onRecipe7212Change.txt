@@ -3,4 +3,6 @@ Déclencheur :   Changement de valeur
 Bande morte :   0
 
 Recipe = Recipe_Menu.7212_Recipe.recipe;
-Settings.Visible = true;
+if Recipe<>"" then
+	Settings.Visible = true;
+endif;
