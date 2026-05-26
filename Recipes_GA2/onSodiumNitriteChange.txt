@@ -7,6 +7,7 @@ dim v_w as float; ' reference volume for water
 dim v_g as float; ' reference volume for glycol
 dim v_q as float; ' quantized final volume (= rounded down)
 dim v_sn as float; ' reference volume for sodium nitrite
+dim v_a as float; ' available volume = max volume that can be filled
 
 v_total = 940; 'InTouch:
 ' test for cold :
@@ -24,11 +25,13 @@ Glycol_SP = v_q * v_g/v_total;
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
 
 v_n = Water_SP + Glycol_SP + v_nsn;
-if v_n + GA2_PV > Tank_Max then
+v_a = Tank_Max - (v_n + GA2_PV);
+if v_a < 0 then
     Sodium_Nitrite_bags_SP = 0;
     Water_SP = 0;
     Glycol_SP = 0;
     v_nsn = 0;
+    v_a = Tank_Max - GA2_PV;
 
     dim graphicInfo as aaGraphic.GraphicInfo;
     graphicInfo.GraphicName = "Alert_Popup";
@@ -39,3 +42,9 @@ if v_n + GA2_PV > Tank_Max then
     graphicInfo.CustomProperties = cpValues;
     ShowGraphic( graphicInfo );
 endif;
+
+Water_str = "Water = " + Water_SP + " L";
+Glycol_str = "Glycol = " + Glycol_SP + " L";
+SN_str = "Sodium Nitrite = " + v_nsn + " L";
+GA2_str = "GA2 = " + GA2_PV + " L";
+Available_str = "Available = " + v_a + " L";
