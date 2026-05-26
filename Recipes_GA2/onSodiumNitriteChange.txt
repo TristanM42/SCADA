@@ -22,3 +22,20 @@ v_q = Sodium_Nitrite_bags_SP * v_F_bag;
 Water_SP = v_q * v_w/v_total;
 Glycol_SP = v_q * v_g/v_total;
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
+
+v_n = Water_SP + Glycol_SP + v_nsn;
+if v_n + GA2_PV > Tank_Max then
+    Sodium_Nitrite_bags_SP = 0;
+    Water_SP = 0;
+    Glycol_SP = 0;
+    v_nsn = 0;
+
+    dim graphicInfo as aaGraphic.GraphicInfo;
+    graphicInfo.GraphicName = "Alert_Popup";
+    graphicInfo.HasTitleBar = false;
+    Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
+    cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", "Sodium Nitrite bags", true);
+    cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", "Result volume would exceed current Tank capacity. Try with less bags or use Full batch button.", true);
+    graphicInfo.CustomProperties = cpValues;
+    ShowGraphic( graphicInfo );
+endif;
