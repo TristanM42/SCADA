@@ -1,0 +1,7 @@
+Déclencheur :   Bouton gauche/Touche relâchés
+
+' DEBUG : simulate GA2_PV
+GA2_PV = GA2_PV + v_n;
+
+GA2_q = GA2_q + Glycol_q + Water_q + v_nsn_q;
+Sodium_Nitrite_bags_SP = 0;
