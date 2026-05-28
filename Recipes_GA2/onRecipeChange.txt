@@ -1,0 +1,7 @@
+Expression :    Recipe
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+if Recipe<>"" then
+	Settings.Visible = true;
+endif;
