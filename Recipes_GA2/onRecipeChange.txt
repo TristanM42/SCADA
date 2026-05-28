@@ -1,7 +1,8 @@
-Expression :    Recipe
+Expression :    recipe
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
-if Recipe<>"" then
+if recipe<>"" then
 	Settings.Visible = true;
+    load_csv = true;
 endif;

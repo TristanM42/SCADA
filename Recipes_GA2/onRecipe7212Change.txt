@@ -2,4 +2,4 @@ Expression :    Recipe_Menu.7212_Recipe.recipe
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
-Recipe = Recipe_Menu.7212_Recipe.recipe;
+recipe = Recipe_Menu.7212_Recipe.recipe;

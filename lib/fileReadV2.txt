@@ -114,9 +114,7 @@ if clicked_cnt == 1 then
     endwhile;
 
     sr.Close();
-    
-    next;
-    
+
 endif;
 
 if clicked_cnt == 2 then
