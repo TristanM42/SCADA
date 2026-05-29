@@ -1,0 +1,10 @@
+Expression :    read_OK
+Déclencheur :   Si vrai
+Bande morte :   0
+
+' Update volumes
+dim temp = Sodium_Nitrite_bags_SP;
+Sodium_Nitrite_bags_SP = 0;
+Sodium_Nitrite_bags_SP = temp;
+
+read_OK = false;
