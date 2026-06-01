@@ -1,0 +1,9 @@
+Expression :    recipe
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+if recipe<>"" then
+    recipe = TagRef + " " + recipe;
+	Settings.Visible = true;
+    load_csv = true;
+endif;
