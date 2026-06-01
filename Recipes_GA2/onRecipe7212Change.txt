@@ -1,0 +1,5 @@
+Expression :    Recipe_Menu.7212_Recipe.recipe
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+recipe = Recipe_Menu.7212_Recipe.recipe;

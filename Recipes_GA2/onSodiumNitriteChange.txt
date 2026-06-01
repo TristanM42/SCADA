@@ -1,0 +1,58 @@
+Expression :    Sodium_Nitrite_bags_SP
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+dim v_q as float; ' quantized final volume (= rounded down)
+dim v_sn as float; ' reference volume for sodium nitrite
+dim v_a as float; ' available volume = max volume that can be filled
+dim v_sn_per_bag as float; ' Volume of Sodium Nitrite for one bag.
+
+' Calculate v_q from references (csv data for one tank and one recipe)
+v_sn = InTouch:v_total - (InTouch:v_w+InTouch:v_g);
+v_sn_per_bag = v_sn/InTouch:n_smax;
+v_F_bag = v_sn_per_bag * (1+(InTouch:v_total-v_sn)/v_sn);
+v_q = Sodium_Nitrite_bags_SP * v_F_bag;
+
+' Calculate the volumes of water, glycol and sodium nitrite
+Water_SP = v_q * InTouch:v_w/InTouch:v_total;
+Glycol_SP = v_q * InTouch:v_g/InTouch:v_total;
+v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
+
+v_n = Water_SP + Glycol_SP + v_nsn;
+v_a = Tank_Max - (v_n + GA2_PV);
+if v_a < 0 then
+    Sodium_Nitrite_bags_SP = 0;
+    Water_SP = 0;
+    Glycol_SP = 0;
+    v_nsn = 0;
+    v_a = Tank_Max - GA2_PV;
+
+    dim graphicInfo as aaGraphic.GraphicInfo;
+    graphicInfo.GraphicName = "Alert_Popup";
+    graphicInfo.HasTitleBar = false;
+    Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
+    cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", "Sodium Nitrite bags", true);
+    cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", "Result volume would exceed current Tank capacity. Try with less bags or use Full batch button.", true);
+    graphicInfo.CustomProperties = cpValues;
+    ShowGraphic( graphicInfo );
+endif;
+
+Water_str = "Water = " + Water_SP + " L";
+Glycol_str = "Glycol = " + Glycol_SP + " L";
+SN_str = "Sodium Nitrite = " + v_nsn + " L";
+GA2_str = "GA2 = " + GA2_PV + " L";
+Available_str = "Available = " + v_a + " L";
+
+' Quantized volumes to fill gaps on textures : round down texture position
+dim texture_pixel_offset as integer; ' Constant for texture pattern start position.
+texture_pixel_offset = 0;
+texture_size = 2;
+GA2_q = (Tank_pixels_size*GA2_PV/Tank_Max) - (((Tank_pixels_size*GA2_PV/Tank_Max)-texture_pixel_offset) mod texture_size);
+Glycol_q = (Tank_pixels_size*Glycol_SP/Tank_Max) - (((Tank_pixels_size*Glycol_SP/Tank_Max)-texture_pixel_offset) mod texture_size);
+Water_q = (Tank_pixels_size*Water_SP/Tank_Max) - (((Tank_pixels_size*Water_SP/Tank_Max)-texture_pixel_offset) mod texture_size);
+v_nsn_q = (Tank_pixels_size*v_nsn/Tank_Max) - (((Tank_pixels_size*v_nsn/Tank_Max)-texture_pixel_offset) mod texture_size);
+
+' Round up fill%
+if Sodium_Nitrite_bags_SP==0 then
+	texture_size = 0;
+endif;

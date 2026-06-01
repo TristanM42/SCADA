@@ -1,4 +1,4 @@
-Expression :    clicked
+Expression :    load_csv
 Déclencheur :   Tant que vrai
     Période :   500
 Bande morte :   0
@@ -25,7 +25,7 @@ Bande morte :   0
 ' output : (tags)
 '   - read_OK : true when data is done reading (once per file)
 ' internal :
-'   - clicked : always true on first call, set to false when all lines are read
+'   - load_csv : always true on first call, set to false when all lines are read
 '   - line : current number for line (start at 0)
 '   - cpt : current number for field (token)
 '=============================================
@@ -40,10 +40,12 @@ dim recipeHeaderLine as integer;
 dim tagNamesArray[32] as string;
 dim s as string;
 dim globalParamName as string;
+dim separator as string;
 
-clicked_cnt = clicked_cnt + 1;
+separator = "|";
+load_csv_cnt = load_csv_cnt + 1;
 
-if clicked_cnt == 1 then
+if load_csv_cnt == 1 then
     sr = System.IO.File.OpenText(filepath);
     while sr.Peek() > -1
         lineString = sr.ReadLine();
@@ -117,13 +119,13 @@ if clicked_cnt == 1 then
 
 endif;
 
-if clicked_cnt == 2 then
+if load_csv_cnt == 2 then
     LogMessage("n_smax = " + InTouch:n_smax);
     LogMessage("v_total = " + InTouch:v_total);
 	LogMessage("v_w = " + InTouch:v_w);
 	LogMessage("v_g = " + InTouch:v_g);
-    clicked_cnt = 0;    
-    clicked = false;
+    load_csv_cnt = 0;    
+    load_csv = false;
     line = 0;
     read_OK = true;
 endif;

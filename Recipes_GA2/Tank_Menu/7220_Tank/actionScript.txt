@@ -1,0 +1,8 @@
+Déclencheur :   Bouton gauche/Touche relâchés
+
+Recipe_Menu.7220_Recipe.Visible = not Recipe_Menu.7220_Recipe.Visible;
+hightLight = not hightLight;
+Tank_Menu.7212_Tank.hightLight = false;
+Recipe_Menu.7212_Recipe.Visible = false;
+Recipe_Menu.Text_Recipe_Label.Visible = true;
+TagRef = titre;
