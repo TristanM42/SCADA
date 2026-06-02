@@ -1,0 +1,6 @@
+' Reset highlight when recipe is reset
+if recipe=="" then
+	Group1.7201_summer.hightLight = false;
+	Group1.7202_cold.hightLight = false;
+	Group1.7203_winter.hightLight = false;
+endif;
