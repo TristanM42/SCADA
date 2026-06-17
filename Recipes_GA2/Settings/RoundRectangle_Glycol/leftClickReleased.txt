@@ -1,0 +1,2 @@
+glycol_clicked = false;
+glycol_clicked_cnt = 0;

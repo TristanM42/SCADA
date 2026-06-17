@@ -1,0 +1,12 @@
+Expression :    glycol_clicked
+Déclencheur :   Tant que vrai
+    Période : 500 ms
+Bande morte :   0
+
+if glycol_clicked_cnt==1 then
+	tooltip_touchscreen.comment = Glycol_str;
+	tooltip_touchscreen.X = Settings.RoundRectangle_GA2.X + Settings.RoundRectangle_GA2.Width/2 - tooltip_touchscreen.Width/2;
+	tooltip_touchscreen.Y = Settings.RoundRectangle_GA2.Y - tooltip_touchscreen.Height;
+endif;
+
+glycol_clicked_cnt = glycol_clicked_cnt + 1;
