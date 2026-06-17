@@ -4,9 +4,9 @@ Déclencheur :   Tant que vrai
 Bande morte :   0
 
 if glycol_clicked_cnt==1 then
-	tooltip_touchscreen.comment = Glycol_str;
-	tooltip_touchscreen.X = Settings.RoundRectangle_GA2.X + Settings.RoundRectangle_GA2.Width/2 - tooltip_touchscreen.Width/2;
-	tooltip_touchscreen.Y = Settings.RoundRectangle_GA2.Y - tooltip_touchscreen.Height;
+	tooltip_touchscreen.comment = " ";
+	glycol_clicked = false;
+	glycol_clicked_cnt = 0;
 endif;
 
 glycol_clicked_cnt = glycol_clicked_cnt + 1;
