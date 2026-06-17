@@ -1,11 +1,11 @@
-Expression :    glycol_clicked
+Expression :    Available_clicked
 Déclencheur :   Tant que vrai
     Période : 1000 ms
 Bande morte :   0
 
 if tooltip_cnt==1 then
 	tooltip_touchscreen.comment = " ";
-	glycol_clicked = false;
+	Available_clicked = false;
 	tooltip_cnt = 0;
 endif;
 
