@@ -37,11 +37,11 @@ if v_a < 0 then
     ShowGraphic( graphicInfo );
 endif;
 
-Water_str = "Water = " + Water_SP + " L";
-Glycol_str = "Glycol = " + Glycol_SP + " L";
-SN_str = "Sodium Nitrite = " + v_nsn + " L";
-GA2_str = "GA2 = " + GA2_PV + " L";
-Available_str = "Available = " + v_a + " L";
+Water_str = "Water = " + Round(Water_SP,1) + " L";
+Glycol_str = "Glycol = " + Round(Glycol_SP,1) + " L";
+SN_str = "Sodium Nitrite = " + Round(v_nsn,1) + " L";
+GA2_str = "GA2 = " + Round(GA2_PV,1) + " L";
+Available_str = "Available = " + Round(v_a,1) + " L";
 
 ' Quantized volumes to fill gaps on textures : round down texture position
 dim texture_pixel_offset as integer; ' Constant for texture pattern start position.
