@@ -1,0 +1,4 @@
+Available_clicked = true;
+tooltip_touchscreen.comment = Available_str;
+tooltip_touchscreen.X = Settings.RoundRectangle_GA2.X + Settings.RoundRectangle_GA2.Width/2 - tooltip_touchscreen.Width/2;
+tooltip_touchscreen.Y = Settings.RoundRectangle_GA2.Y - tooltip_touchscreen.Height;
