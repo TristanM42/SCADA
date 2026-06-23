@@ -1,0 +1,9 @@
+Expression :    help.pressed
+Déclencheur :   Si vrai
+
+dim graphicInfo as aaGraphic.GraphicInfo;
+
+help.pressed = false;
+
+graphicInfo.GraphicName = "Recipes_GA2_help";
+ShowGraphic(graphicInfo);

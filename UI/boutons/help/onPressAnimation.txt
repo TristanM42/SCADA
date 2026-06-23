@@ -1,0 +1,16 @@
+Expression :    press_animation
+Déclencheur :   Tant que vrai
+    Période :   200
+
+press_cnt = press_cnt + 1;
+
+if press_cnt==1 then
+	Ellipse_unclicked.Visible = false;
+	Ellipse_clicked.Visible = true;
+elseif press_cnt==2 then
+	Ellipse_clicked.Visible = false;
+	Ellipse_unclicked.Visible = true;
+	press_cnt = 0;
+	pressed = true;
+	press_animation = false;
+endif;
