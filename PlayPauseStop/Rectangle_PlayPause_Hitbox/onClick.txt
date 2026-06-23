@@ -1,0 +1,9 @@
+IF not Permanent_Conditions or (not Initial_Conditions and Phase==0) then
+	Etat_couleur = Etat_couleur;
+ELSE
+	IF Etat_couleur == 0 or Etat_couleur == 2 THEN
+		Etat_couleur = 1;
+	ELSE
+		Etat_couleur = 2;
+	ENDIF;
+ENDIF;
