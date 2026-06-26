@@ -29,3 +29,17 @@ Recipe_Menu.7212_Recipe.recipe = "";
 Recipe_Menu.7220_Recipe.Visible = false;
 Recipe_Menu.7212_Recipe.Visible = false;
 Settings.Visible = false;
+
+if Gassing_Type=="GA1" then
+	Tank_Menu.7220_Tank.titre = "Tank 1224";
+	Tank_Menu.7212_Tank.titre = "Tank 1229";
+	filepath = "c:\claii\recipes_GA1_MEMU.csv";
+elseif Gassing_Type=="GA2" then
+	Tank_Menu.7220_Tank.titre = "Tank 7220";
+	Tank_Menu.7212_Tank.titre = "Tank 7213";
+	filepath = "c:\claii\recipes_GA2.csv";
+elseif Gassing_Type=="Citric acid" then
+	Tank_Menu.7220_Tank.titre = "Tank 7123";
+	Tank_Menu.7212_Tank.titre = "Tank 7116";
+	filepath = "c:\claii\recipes_GA1_Plant.csv";
+endif;

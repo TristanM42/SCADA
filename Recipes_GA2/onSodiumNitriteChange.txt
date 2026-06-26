@@ -34,10 +34,14 @@ if v_a < 0 then
     ShowGraphic( graphicInfo );
 endif;
 
+if Gassing_Type=="Citric acid" then
+	Glycol_SP = 0;
+endif;
+
 Water_str = "Water = " + Round(Water_SP,1) + " L";
 Glycol_str = "Glycol = " + Round(Glycol_SP,1) + " L";
 SN_str = "Sodium Nitrite = " + Round(v_nsn,1) + " L";
-GA2_str = "GA2 = " + Round(GA2_PV,1) + " L";
+GA2_str = Gassing_Type + " = " + Round(GA2_PV,1) + " L";
 Available_str = "Available = " + Round(v_a,1) + " L";
 
 ' Quantized volumes to fill gaps on textures : round down texture position

@@ -6,4 +6,9 @@ dim graphicInfo as aaGraphic.GraphicInfo;
 help.pressed = false;
 
 graphicInfo.GraphicName = "Recipes_GA2_help";
+
+Dim cpValues [1] as aaGraphic.CustomPropertyValuePair;
+cpValues[1] = new aaGraphic.CustomPropertyValuePair("Gassing_Type", Gassing_Type, true);
+graphicInfo.CustomProperties = cpValues;
+
 ShowGraphic(graphicInfo);
