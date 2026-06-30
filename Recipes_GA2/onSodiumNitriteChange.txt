@@ -3,19 +3,14 @@ Déclencheur :   Changement de valeur
 Bande morte :   0
 
 dim v_q as float; ' quantized final volume (= rounded down)
-dim v_sn as float; ' reference volume for sodium nitrite
 dim v_a as float; ' available volume = max volume that can be filled
 dim v_sn_per_bag as float; ' Volume of Sodium Nitrite for one bag.
 
-' Calculate v_q from references (csv data for one tank and one recipe)
-v_sn = InTouch:v_total - (InTouch:v_w+InTouch:v_g);
-v_sn_per_bag = v_sn/InTouch:n_smax;
-v_F_bag = v_sn_per_bag * (1+(InTouch:v_total-v_sn)/v_sn);
-v_q = Sodium_Nitrite_bags_SP * v_F_bag;
-
-' Calculate the volumes of water, glycol and sodium nitrite
-Water_SP = v_q * InTouch:v_w/InTouch:v_total;
-Glycol_SP = v_q * InTouch:v_g/InTouch:v_total;
+'n_smax =  (156)
+InTouch:v_total = InTouch:n_smax*Sodium_Nitrite_bags_SP;
+Water_SP = InTouch:v_total*InTouch:v_w/100;
+Glycol_SP = InTouch:v_total*InTouch:v_g/100;
+v_sn_per_bag = 15.8;
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
 
 v_n = Water_SP + Glycol_SP + v_nsn;
