@@ -92,9 +92,18 @@ if load_csv_cnt == 1 then
                 ' Bind each value to same index in tag names array
                 if line>recipeHeaderLine+1 then
                     if cpt > 1 then
-                        tagFullName = "InTouch:" + tagNamesArray[cpt];
+                        dim prefix = "";
+                        prefix = StringLeft(tagNamesArray[cpt], 3);
+                        LogMessage("DEBUG load_csv : prefix = " + prefix);
+                        if prefix=="CP_" then
+                            SetCustomPropertyValue(tagNamesArray[cpt], Token, 1); ' TODO conversion explicite de string en x
+                            LogMessage("DEBUG load_csv : CP " + tagNamesArray[cpt] + " = " + Token);
+                        else
+                            tagFullName = "InTouch:IT_SRV:" + tagNamesArray[cpt];
                             tagName.BindTo(tagFullName);
                             tagName = Token;    'TODO : convertir la string selon le type du tag
+                            LogMessage("DEBUG load_csv : IO PLC " + tagFullName + " = " + Token);
+                        endif;
                     endif;
                 endif;
             else
