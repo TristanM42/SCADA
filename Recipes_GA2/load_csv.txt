@@ -4,20 +4,9 @@ Déclencheur :   Tant que vrai
 Bande morte :   0
 
 '==================== DOC ====================
-' Read a file and parse each line into values and then bind to their tag names. The tag names must be ordered like the values.
+' Read a file and parse each line into values and then bind to their tag names. The order must not change, else this code must be changed too.
 ' The function stops when EOF is found.
 ' Warning : due to string limitation, maximum line size cannot be bigger than 254 caracters, so we estimated a maximum of 32 fields per line.
-
-' Example :
-'     ParametresGlobaux
-'     Nombre de sacs de Sodium de Nitrite maximal|n_smax|6
-'     Volume maximal de GA2|v_total|940
-'     ParametresRecette
-'     Recipe description|v_w|v_g
-'     Tank 7220 Summer|845|0
-'     Tank 7220 Cold|558|287
-'     Tank 7220 Winter|414|431
-' v_w is second element of the line, so it matches the second value of wanted recipe, so 845, 558 or 414
 
 ' input :
 '   - filepath : file path
@@ -77,9 +66,9 @@ if load_csv_cnt == 1 then
                 if cpt==2 then
                     globalParamName = Token;
                 elseif cpt==3 then
-                    tagFullName = "InTouch:" + globalParamName;	
-                    tagName.BindTo(tagFullName);
-                    tagName = Token;
+                    ' Global parameters are passed to custom properties, and will be applied later on Set Recipe
+                    SetCustomPropertyValue(globalParamName, Token, 1);
+                    LogMessage("DEBUG load_csv : CP " + globalParamName + " = " + Token);
                 endif;
             elseif currentSection=="ParametresRecette" then
                 ' Initialize tag names array
@@ -92,6 +81,8 @@ if load_csv_cnt == 1 then
                 ' Bind each value to same index in tag names array
                 if line>recipeHeaderLine+1 then
                     if cpt > 1 then
+                        {
+                        ' Parse custom properties (CP), else bind PLC output
                         dim prefix = "";
                         prefix = StringLeft(tagNamesArray[cpt], 3);
                         LogMessage("DEBUG load_csv : prefix = " + prefix);
@@ -103,6 +94,27 @@ if load_csv_cnt == 1 then
                             tagName.BindTo(tagFullName);
                             tagName = Token;    'TODO : convertir la string selon le type du tag
                             LogMessage("DEBUG load_csv : IO PLC " + tagFullName + " = " + Token);
+                        endif;}
+                        
+                        ' Explicit mapping : input data in csv must be in the same order !
+                        if cpt==2 then
+                            SetCustomPropertyValue("Water_rSP", Token, 1);
+                        elseif cpt==3 then
+                            SetCustomPropertyValue("Water_rTail_Error", Token, 1);
+                        elseif cpt==4 then
+                            SetCustomPropertyValue("Water_wDelay_StepOn", Token, 1);
+                        elseif cpt==5 then
+                            SetCustomPropertyValue("Glycol_rSP", Token, 1);
+                        elseif cpt==6 then
+                            SetCustomPropertyValue("Glycol_rTail_Error", Token, 1);
+                        elseif cpt==7 then
+                            SetCustomPropertyValue("Glycol_wDelay_StepOn", Token, 1);
+                        elseif cpt==8 then
+                            SetCustomPropertyValue("SodiumNitrite_rSP", Token, 1);
+                        elseif cpt==9 then
+                            SetCustomPropertyValue("Agitation_wDelay_StepOn", Token, 1);
+                        elseif cpt==10 then
+                            SetCustomPropertyValue("QC_rGA2_MEMU_QC_Densite", Token, 1);
                         endif;
                     endif;
                 endif;
@@ -130,9 +142,9 @@ endif;
 
 if load_csv_cnt == 2 then
     LogMessage("DEBUG load_csv : v_F_bag = " + v_F_bag);
-    LogMessage("DEBUG load_csv : v_total = " + InTouch:v_total);
-	LogMessage("DEBUG load_csv : CP_Water_Prct = " + CP_Water_Prct);
-	LogMessage("DEBUG load_csv : v_g = " + InTouch:v_g);
+    LogMessage("DEBUG load_csv : Tank_Max = " + Tank_Max);
+	LogMessage("DEBUG load_csv : Water_rSP = " + Water_rSP);
+	LogMessage("DEBUG load_csv : v_g = " + Glycol_rSP);
     load_csv_cnt = 0;    
     load_csv = false;
     line = 0;
