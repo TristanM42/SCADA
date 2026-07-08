@@ -1,0 +1,8 @@
+ParametresGlobaux
+Volume final pour 1 sac de Sodium de Nitrite|CP_v_F_bag|156
+Volume maximal de GA2|v_total|660
+ParametresRecette
+Recipe description|FIT7818.i_rHH_Threshold|rTail_Error_w|wDelay_StepOn_w|v_g|rTail_Error_g|wDelay_StepOn_g|wDelay_StepOn_agitation
+Summer|89|10|20|0|0|0|300
+Cold|59|10|20|30|10|20|300
+Winter|44|10|20|45|10|20|300

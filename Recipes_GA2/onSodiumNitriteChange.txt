@@ -6,11 +6,13 @@ dim v_q as float; ' quantized final volume (= rounded down)
 dim v_a as float; ' available volume = max volume that can be filled
 dim v_sn_per_bag as float; ' Volume of Sodium Nitrite for one bag.
 
-'n_smax =  (156)
-InTouch:v_total = InTouch:n_smax*Sodium_Nitrite_bags_SP;
-Water_SP = InTouch:v_total*InTouch:v_w/100;
-Glycol_SP = InTouch:v_total*InTouch:v_g/100;
-v_sn_per_bag = 15.8;
+v_q = v_F_bag*Sodium_Nitrite_bags_SP;
+Water_SP = v_q*CP_Water_Prct/100;
+Glycol_SP = v_q*InTouch:v_g/100;
+LogMessage("DEBUG : v_q = " + v_q);
+LogMessage("DEBUG : Water_SP = " + Water_SP);
+LogMessage("DEBUG : v_F_bag = " + v_F_bag);
+v_sn_per_bag = v_F_bag/SN_Prct;
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
 
 v_n = Water_SP + Glycol_SP + v_nsn;

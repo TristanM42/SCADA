@@ -93,8 +93,8 @@ if load_csv_cnt == 1 then
                 if line>recipeHeaderLine+1 then
                     if cpt > 1 then
                         tagFullName = "InTouch:" + tagNamesArray[cpt];
-                        tagName.BindTo(tagFullName);
-                        tagName = Token;    'TODO : convertir la string selon le type du tag
+                            tagName.BindTo(tagFullName);
+                            tagName = Token;    'TODO : convertir la string selon le type du tag
                     endif;
                 endif;
             else
@@ -120,10 +120,10 @@ if load_csv_cnt == 1 then
 endif;
 
 if load_csv_cnt == 2 then
-    LogMessage("n_smax = " + InTouch:n_smax);
-    LogMessage("v_total = " + InTouch:v_total);
-	LogMessage("v_w = " + InTouch:v_w);
-	LogMessage("v_g = " + InTouch:v_g);
+    LogMessage("DEBUG load_csv : v_F_bag = " + v_F_bag);
+    LogMessage("DEBUG load_csv : v_total = " + InTouch:v_total);
+	LogMessage("DEBUG load_csv : CP_Water_Prct = " + CP_Water_Prct);
+	LogMessage("DEBUG load_csv : v_g = " + InTouch:v_g);
     load_csv_cnt = 0;    
     load_csv = false;
     line = 0;

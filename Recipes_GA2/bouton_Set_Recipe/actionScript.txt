@@ -1,7 +1,20 @@
 Déclencheur :   Bouton gauche/Touche relâchés
 
-' DEBUG : simulate GA2_PV
-GA2_PV = GA2_PV + v_n;
-
 GA2_q = GA2_q + Glycol_q + Water_q + v_nsn_q;
 Sodium_Nitrite_bags_SP = 0;
+
+dim PLC_path as string;
+dim objectPtr as indirect;
+
+' Path format : {GA_G7}.{step}.{attribute} or {GA_G7}.{sequence}.{attribute}
+PLC_path = "InTouch:IT_SRV:DB_Grafcet_GA2_MEMU.GA2_MEMU_WATER.rSP";
+objectPtr.BindTo(PLC_path);
+objectPtr = Water_SP;
+
+PLC_path = "InTouch:IT_SRV:DB_Grafcet_GA2_MEMU.GA2_MEMU_GLYCOL.rSP";
+objectPtr.BindTo(PLC_path);
+objectPtr = Glycol_SP;
+
+PLC_path = "InTouch:IT_SRV:DB_Grafcet_GA2_MEMU.GA2_MEMU_Sodium.rSP";
+objectPtr.BindTo(PLC_path);
+objectPtr = v_nsn;
