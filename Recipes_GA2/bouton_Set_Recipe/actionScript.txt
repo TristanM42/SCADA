@@ -11,3 +11,4 @@ Water_wDelay_StepOn_A = Water_wDelay_StepOn;
 Glycol_wDelay_StepOn_A = Glycol_wDelay_StepOn;
 Agitation_wDelay_StepOn_A = Agitation_wDelay_StepOn;
 QC_rGA2_MEMU_QC_Densite_A = QC_rGA2_MEMU_QC_Densite;
+Sequence_wRecipe = TagRef;
