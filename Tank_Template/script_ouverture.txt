@@ -1,33 +1,45 @@
-Déclencheur :   A l'ouverture
-    Délai des données :   1000
-
-
 dim Nom as string;
 
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput.EngUnits";
 else
-	Nom = "InTouch:"+TagRef+".q_rOutput.EngUnits";	
+	Nom = "InTouch:"+TagRef+".q_rOutput.EngUnits";
 endif;
 SetCustomPropertyValue("TagUnit",Nom,0);
 
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
 else
-	Nom = "InTouch:"+TagRef+".q_rOutput";	
+	Nom = "InTouch:"+TagRef+".q_rOutput";
 endif;
 SetCustomPropertyValue("Mesure_Remplissage",Nom,0);
 
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".I_rMinOut";
 else
-	Nom = "InTouch:"+TagRef+".I_rMinOut";	
+	Nom = "InTouch:"+TagRef+".I_rMinOut";
 endif;
 SetCustomPropertyValue("Mesure_Remplissage_Min",Nom,0);
 
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".I_rMaxOut";
 else
-	Nom = "InTouch:"+TagRef+".I_rMaxOut";	
+	Nom = "InTouch:"+TagRef+".I_rMaxOut";
 endif;
 SetCustomPropertyValue("Mesure_Remplissage_Max",Nom,0);
+
+'Volume
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput"; '
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput";
+endif;
+SetCustomPropertyValue("Mesure_Remplissage",Nom,0);
+
+'% de chauffe
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef_Temperature+".q_rOutput"; '
+else
+	Nom = "InTouch:"+TagRef_Temperature+".q_rOutput";
+endif;
+SetCustomPropertyValue("chauffeOp",Nom,0);

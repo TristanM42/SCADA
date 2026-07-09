@@ -121,7 +121,7 @@ if clicked_cnt == 2 then
     LogMessage("n_smax = " + InTouch:n_smax);
     LogMessage("v_total = " + InTouch:v_total);
 	LogMessage("v_w = " + InTouch:v_w);
-	LogMessage("v_g = " + InTouch:v_g);
+	LogMessage("v_g = " + Glycol_rSP);
     clicked_cnt = 0;    
     clicked = false;
     line = 0;

@@ -1,7 +1,14 @@
 Déclencheur :   Bouton gauche/Touche relâchés
 
-' DEBUG : simulate GA2_PV
-GA2_PV = GA2_PV + v_n;
-
 GA2_q = GA2_q + Glycol_q + Water_q + v_nsn_q;
-Sodium_Nitrite_bags_SP = 0;
+
+Water_rTail_Error_A = Water_rTail_Error;
+Glycol_rTail_Error_A = Glycol_rTail_Error;
+Water_rSP_A = Water_SP;
+Glycol_rSP_A = Glycol_SP;
+SN_rSP_A = v_nsn;
+Water_wDelay_StepOn_A = Water_wDelay_StepOn;
+Glycol_wDelay_StepOn_A = Glycol_wDelay_StepOn;
+Agitation_wDelay_StepOn_A = Agitation_wDelay_StepOn;
+QC_rGA2_MEMU_QC_Densite_A = QC_rGA2_MEMU_QC_Densite;
+Sequence_wRecipe = TagRef;
