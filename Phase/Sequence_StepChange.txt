@@ -7,7 +7,13 @@ Bande morte :   0
 if iStep == Sequence_Step then
     if Manual_Loading then
         if Manual_Type==0 then
-            'TODO : show Bool_Popup
+            dim graphicInfo as aaGraphic.GraphicInfo;
+            graphicInfo.GraphicName = "Bool_Popup";
+            Dim cpValues [2] as aaGraphic.CustomPropertyValuePair;
+            cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", Popup_Title, true);
+            cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", Popup_Description, true);
+            graphicInfo.CustomProperties = cpValues;
+            ShowGraphic(graphicInfo);
         elseif Manual_Type==1 then
             dim graphicInfo as aaGraphic.GraphicInfo;
             graphicInfo.GraphicName = "Integer_Popup";
@@ -21,14 +27,5 @@ if iStep == Sequence_Step then
         elseif Manual_Type==2 then
             'TODO : show Float_Popup
         endif;
-    endif;
-    if Step_Instance_Name=="GA2_MEMU_QC_Control" then
-        dim graphicInfo as aaGraphic.GraphicInfo;
-        graphicInfo.GraphicName = "Bool_Popup";
-        Dim cpValues [2] as aaGraphic.CustomPropertyValuePair;
-        cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", Popup_Title, true);
-        cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", Popup_Description, true);
-        graphicInfo.CustomProperties = cpValues;
-        ShowGraphic(graphicInfo);
     endif;
 endif;
