@@ -1,5 +1,15 @@
 dim Nom as string;
 
+if pipe_type==0 then
+    other_on = 1;
+elseif pipe_type==7 then
+    air_on = 1;
+elseif pipe_type==8 then
+    water_on = 1;
+elseif pipe_type==9 then
+    steam_on = 1;
+endif;
+
 if TagRef_Water<>"" then
     Nom = "InTouch:IT_SRV"+":"+TagRef_Water+".Q_wStatus";
     SetCustomPropertyValue("water_on",Nom,0);
