@@ -1,0 +1,21 @@
+dim Nom as string;
+
+if TagRef_Water<>"" then
+    Nom = "InTouch:IT_SRV"+":"+TagRef_Water+".Q_wStatus";
+    SetCustomPropertyValue("water_on",Nom,0);
+endif;
+
+if TagRef_Air<>"" then
+    Nom = "InTouch:IT_SRV"+":"+TagRef_Air+".Q_wStatus";
+    SetCustomPropertyValue("air_on",Nom,0);
+endif;
+
+if TagRef_Steam<>"" then
+    Nom = "InTouch:IT_SRV"+":"+TagRef_Steam+".Q_wStatus";
+    SetCustomPropertyValue("steam_on",Nom,0);
+endif;
+
+if TagRef_Other<>"" then
+    Nom = "InTouch:IT_SRV"+":"+TagRef_Other+".Q_wStatus";
+    SetCustomPropertyValue("other_on",Nom,0);
+endif;
