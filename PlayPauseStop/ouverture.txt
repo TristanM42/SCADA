@@ -1,0 +1,17 @@
+dim Nom as string;
+
+' Actions
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xBtn_Play";
+SetCustomPropertyValue("xBtn_StartSequence", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xBtn_Pause";
+SetCustomPropertyValue("xBtn_PauseSequence", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xBtn_Stop";
+SetCustomPropertyValue("xBtn_StopSequence", Nom, 0);
+
+' States
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xPlay_Request";
+SetCustomPropertyValue("xStartSequence_Request", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xPause_Request";
+SetCustomPropertyValue("xPauseSequence_Request", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Sequence_Name + ".xStop_Request​";
+SetCustomPropertyValue("xStopSequence_Request", Nom, 0);

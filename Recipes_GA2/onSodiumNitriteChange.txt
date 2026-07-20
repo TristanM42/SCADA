@@ -12,7 +12,7 @@ Glycol_SP = v_q*Glycol_rSP/100;
 LogMessage("DEBUG : v_q = " + v_q);
 LogMessage("DEBUG : Water_SP = " + Water_SP);
 LogMessage("DEBUG : v_F_bag = " + v_F_bag);
-v_sn_per_bag = v_F_bag/SN_rSP;
+v_sn_per_bag = v_F_bag*SN_rSP/100;
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
 
 v_n = Water_SP + Glycol_SP + v_nsn;

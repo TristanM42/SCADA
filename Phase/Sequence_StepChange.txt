@@ -1,0 +1,31 @@
+Expression :    Sequence_Step
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+' Show one of the following popups, depending on context
+
+if iStep == Sequence_Step then
+    if Manual_Loading then
+        if Manual_Type==0 then
+            dim graphicInfo as aaGraphic.GraphicInfo;
+            graphicInfo.GraphicName = "Bool_Popup";
+            Dim cpValues [2] as aaGraphic.CustomPropertyValuePair;
+            cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", Popup_Title, true);
+            cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", Popup_Description, true);
+            graphicInfo.CustomProperties = cpValues;
+            ShowGraphic(graphicInfo);
+        elseif Manual_Type==1 then
+            dim graphicInfo as aaGraphic.GraphicInfo;
+            graphicInfo.GraphicName = "Integer_Popup";
+            Dim cpValues [4] as aaGraphic.CustomPropertyValuePair;
+            cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", Popup_Title, true);
+            cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", Popup_Description, true);
+            cpValues[3] = new aaGraphic.CustomPropertyValuePair("Integer_Min", Popup_Integer_Min, true);
+            cpValues[4] = new aaGraphic.CustomPropertyValuePair("Integer_Max", Popup_Integer_Max, true);
+            graphicInfo.CustomProperties = cpValues;
+            ShowGraphic(graphicInfo);
+        elseif Manual_Type==2 then
+            'TODO : show Float_Popup
+        endif;
+    endif;
+endif;

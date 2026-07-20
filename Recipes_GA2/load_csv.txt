@@ -110,7 +110,7 @@ if load_csv_cnt == 1 then
                         elseif cpt==7 then
                             SetCustomPropertyValue("Glycol_wDelay_StepOn", Token, 1);
                         elseif cpt==8 then
-                            SetCustomPropertyValue("SodiumNitrite_rSP", Token, 1);
+                            SetCustomPropertyValue("SN_rSP", Token, 1);
                         elseif cpt==9 then
                             SetCustomPropertyValue("Agitation_wDelay_StepOn", Token, 1);
                         elseif cpt==10 then

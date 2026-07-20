@@ -1,0 +1,36 @@
+dim Nom as string;
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".sStep_Name";
+'SetCustomPropertyValue("Title", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".xFlag";
+SetCustomPropertyValue("Step_Validated", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".rSP";
+SetCustomPropertyValue("rSP", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".rSP.Comment";
+SetCustomPropertyValue("rSP_Comment", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".rSP.EngUnits";
+SetCustomPropertyValue("rSP_EngUnits", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".rPending";
+SetCustomPropertyValue("rProgress", Nom, 0);
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".rPending.Comment";
+SetCustomPropertyValue("rProgress_Comment", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".wSP_Time";
+SetCustomPropertyValue("iSP", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Step_Instance_Name + ".wPending_Time";
+SetCustomPropertyValue("iProgress", Nom, 0);
+
+Nom = "InTouch:IT_SRV:" + Sequence_Instance_Name + ".wStatus";
+SetCustomPropertyValue("Sequence_Step", Nom, 0);
+
+if Type_Consigne==0 then
+	progress = rProgress;
+	SP = rSP;
+elseif Type_Consigne==1 then
+	progress = iProgress;
+	SP = iSP;
+endif;

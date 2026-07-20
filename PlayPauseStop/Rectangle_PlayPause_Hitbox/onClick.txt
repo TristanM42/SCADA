@@ -1,0 +1,5 @@
+if xStartSequence_Request==false then
+	xBtn_StartSequence = true;
+else
+	xBtn_PauseSequence = true;
+endif;
