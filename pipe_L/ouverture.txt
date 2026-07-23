@@ -1,31 +1,40 @@
 dim Nom as string;
 
-if pipe_type==0 then
-    other_on = 1;
-elseif pipe_type==7 then
-    air_on = 1;
-elseif pipe_type==8 then
-    water_on = 1;
-elseif pipe_type==9 then
-    steam_on = 1;
-endif;
-
-if TagRef_Water<>"" then
-    Nom = "InTouch:IT_SRV"+":"+TagRef_Water+".Q_wStatus";
-    SetCustomPropertyValue("water_on",Nom,0);
-endif;
-
-if TagRef_Air<>"" then
-    Nom = "InTouch:IT_SRV"+":"+TagRef_Air+".Q_wStatus";
-    SetCustomPropertyValue("air_on",Nom,0);
-endif;
-
-if TagRef_Steam<>"" then
-    Nom = "InTouch:IT_SRV"+":"+TagRef_Steam+".Q_wStatus";
-    SetCustomPropertyValue("steam_on",Nom,0);
-endif;
-
-if TagRef_Other<>"" then
-    Nom = "InTouch:IT_SRV"+":"+TagRef_Other+".Q_wStatus";
-    SetCustomPropertyValue("other_on",Nom,0);
+if pipe_type<>0 then
+    ' Replace states if pipe_type is given
+        if pipe_type==1 then
+            product_on = true;
+        elseif pipe_type==7 then
+            air_on = true;
+        elseif pipe_type==8 then
+            water_on = true;
+        elseif pipe_type==9 then
+            steam_on = true;
+        endif;
+else
+    ' Replace states with TagRef if given (TagRef or state, not both)
+    if TagRef_Water<>"" then
+        Nom = "InTouch:IT_SRV"+":"+TagRef_Water+".Q_xCMD";
+        SetCustomPropertyValue("water_on",Nom,0);
+    else
+        water_on = false;
+    endif;
+    if TagRef_Air<>"" then
+        Nom = "InTouch:IT_SRV"+":"+TagRef_Air+".Q_xCMD";
+        SetCustomPropertyValue("air_on",Nom,0);
+    else
+        air_on = false;
+    endif;
+    if TagRef_Steam<>"" then
+        Nom = "InTouch:IT_SRV"+":"+TagRef_Steam+".Q_xCMD";
+        SetCustomPropertyValue("steam_on",Nom,0);
+    else
+        steam_on = false;
+    endif;
+    if TagRef_Product<>"" then
+        Nom = "InTouch:IT_SRV"+":"+TagRef_Product+".Q_xCMD";
+        SetCustomPropertyValue("product_on",Nom,0);
+    else
+        product_on = false;
+    endif;
 endif;
