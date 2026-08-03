@@ -26,12 +26,12 @@ else
 	Group1.3000_emulsion.hightLight = false;
     LogMessage("Group1.3000_emulsion.hightLight = " + Group1.3000_emulsion.hightLight);
 endif;
-if InTouch:activeTab==Group1.4000_blending.titre then
-	Group1.4000_blending.hightLight = true;
-    LogMessage("Group1.4000_blending.hightaLight = " + Group1.4000_blending.hightLight);
+if InTouch:activeTab==Group1.4000_thiocyanate.titre then
+	Group1.4000_thiocyanate.hightLight = true;
+    LogMessage("Group1.4000_thiocyanate.hightLight = " + Group1.4000_thiocyanate.hightLight);
 else
-	Group1.4000_blending.hightLight = false;
-    LogMessage("Group1.4000_blending.hightLight = " + Group1.4000_blending.hightLight);
+	Group1.4000_thiocyanate.hightLight = false;
+    LogMessage("Group1.4000_thiocyanate.hightLight = " + Group1.4000_thiocyanate.hightLight);
 endif;
 if InTouch:activeTab==Group1.7000_memu.titre then
 	Group1.7000_memu.hightLight = true;
