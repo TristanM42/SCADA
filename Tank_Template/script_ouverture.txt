@@ -8,13 +8,6 @@ endif;
 SetCustomPropertyValue("TagUnit",Nom,0);
 
 if StringLen(Access_Name)>0 then
-	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
-else
-	Nom = "InTouch:"+TagRef+".q_rOutput";
-endif;
-SetCustomPropertyValue("Mesure_Remplissage",Nom,0);
-
-if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".I_rMinOut";
 else
 	Nom = "InTouch:"+TagRef+".I_rMinOut";
@@ -30,7 +23,7 @@ SetCustomPropertyValue("Mesure_Remplissage_Max",Nom,0);
 
 'Volume
 if StringLen(Access_Name)>0 then
-	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput"; '
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
 else
 	Nom = "InTouch:"+TagRef+".q_rOutput";
 endif;
