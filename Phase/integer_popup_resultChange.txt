@@ -2,8 +2,12 @@ Expression :    InTouch:integer_popup_result
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
-if Step_Instance_Name=="GA2_MEMU_QC_Control" then
-	if InTouch:integer_popup_result==Manual_iSP then
-		Step_Validated = true;
+if iStep == Sequence_Step then
+	if Manual_Loading then
+        if Manual_Type==1 then
+			if InTouch:integer_popup_result==Manual_iSP then
+				Step_Validated = true;
+			endif;
+		endif;
 	endif;
 endif;
