@@ -34,7 +34,7 @@ if v_a < 0 then
     ShowGraphic( graphicInfo );
 endif;
 
-if Gassing_Type=="Citric acid" then
+if Gassing_Type=="GA1 Plant" then
 	Glycol_SP = 0;
 endif;
 
