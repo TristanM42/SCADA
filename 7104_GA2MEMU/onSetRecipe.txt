@@ -1,0 +1,6 @@
+Expression :    InTouch:GA2_Recipe
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+Tank_7220.status_active = (InTouch:GA2_Tank=="TK7220");
+Tank_7213.status_active = (InTouch:GA2_Tank=="TK7213");
