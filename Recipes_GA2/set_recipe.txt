@@ -1,0 +1,21 @@
+Expression :    InTouch:GA2_Recipe
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+if InTouch:popup_title=="Set Recipe" then
+    if InTouch:confirm_popup_result==true then    
+        Water_rTail_Error_A = Water_rTail_Error;
+        Glycol_rTail_Error_A = Glycol_rTail_Error;
+        Water_rSP_A = Water_SP;
+        Glycol_rSP_A = Glycol_SP;
+        SN_rSP_A = v_nsn;
+        Water_wDelay_StepOn_A = Water_wDelay_StepOn;
+        Glycol_wDelay_StepOn_A = Glycol_wDelay_StepOn;
+        Agitation_wDelay_StepOn_A = Agitation_wDelay_StepOn;
+        QC_rGA2_MEMU_QC_Densite_A = QC_rGA2_MEMU_QC_Densite;
+        initSequence = true;
+        Sequence_wRecipe = TagRef_int;
+        InTouch:GA2_Tank = TagRef;
+        InTouch:GA2_Recipe = recipe;
+    endif;
+endif;

@@ -6,3 +6,23 @@ hightLight = not hightLight;
 Tank_Menu.7220_Tank.hightLight = false;
 Recipe_Menu.Text_Recipe_Label.Visible = true;
 TagRef = titre;
+
+dim TagRef_Level as string;
+if Gassing_Type=="GA1" then
+	TagRef_int = 7123;
+    TagRef_Level = "LT7121";
+elseif Gassing_Type=="GA2" then
+	TagRef_int = 7213;
+    TagRef_Level = "LT7211";
+elseif Gassing_Type=="GA1 Plant" then
+	TagRef_int = 1214;
+    TagRef_Level = "LT1215";
+endif;
+
+dim Nom as string;
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef_Level+".q_rOutput";
+else
+	Nom = "InTouch:"+TagRef_Level+".q_rOutput";	
+endif;
+SetCustomPropertyValue("GA2_PV", Nom, 0);
