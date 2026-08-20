@@ -1,0 +1,16 @@
+Expression :    InTouch:popup_title
+Déclencheur :   Changement de valeur
+Bande morte :   0
+
+if iStep == Sequence_Step and InTouch:popup_title==Popup_Title then
+	if Manual_Loading then
+		if Manual_Type==0 then
+			Step_Validated = InTouch:confirm_popup_result;
+		endif;
+		if Manual_Type==1 then
+			if InTouch:integer_popup_result==Manual_iSP then
+				Step_Validated = true;
+			endif;
+		endif;
+	endif;
+endif;

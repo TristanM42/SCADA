@@ -1,7 +1,0 @@
-Expression :    rProgress
-Déclencheur :   Changement de valeur
-Bande morte :   0
-
-if Type_Consigne==0 then
-	progress = rProgress + " / " + rSP;
-endif;
