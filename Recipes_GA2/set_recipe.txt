@@ -3,8 +3,7 @@ Déclencheur :   Changement de valeur
 Bande morte :   0
 
 if InTouch:popup_title=="Set Recipe" then
-    InTouch:popup_title = "";
-    if InTouch:bool_popup_result==true then    
+    if InTouch:confirm_popup_result==true then    
         Water_rTail_Error_A = Water_rTail_Error;
         Glycol_rTail_Error_A = Glycol_rTail_Error;
         Water_rSP_A = Water_SP;

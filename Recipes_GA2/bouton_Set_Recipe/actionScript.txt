@@ -2,7 +2,7 @@ Déclencheur :   Bouton gauche/Touche relâchés
 
 ' Confirm popup
 dim graphicInfo as aaGraphic.GraphicInfo;
-graphicInfo.GraphicName = "Bool_Popup";
+graphicInfo.GraphicName = "Confirm_Popup";
 Dim cpValues [2] as aaGraphic.CustomPropertyValuePair;
 cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", "Set Recipe", true);
 cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", "Set recipe with those settings ?", true);

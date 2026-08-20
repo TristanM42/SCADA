@@ -23,15 +23,15 @@ Recipe_Menu.7212_Recipe.Visible = false;
 Settings.Visible = false;
 
 if Gassing_Type=="GA1" then
-	Tank_Menu.7220_Tank.titre = "Tank 7116";
-	Tank_Menu.7212_Tank.titre = "Tank 7123";
+	Tank_Menu.7220_Tank.titre = "TK7116";
+	Tank_Menu.7212_Tank.titre = "TK7123";
 	filepath = "c:\claii\recipes_GA1_MEMU.csv";
 elseif Gassing_Type=="GA2" then
-	Tank_Menu.7220_Tank.titre = "Tank 7220";
-	Tank_Menu.7212_Tank.titre = "Tank 7213";
+	Tank_Menu.7220_Tank.titre = "TK7220";
+	Tank_Menu.7212_Tank.titre = "TK7213";
 	filepath = "c:\claii\recipes_GA2.csv";
 elseif Gassing_Type=="GA1 Plant" then
-	Tank_Menu.7220_Tank.titre = "Tank 1229";
-	Tank_Menu.7212_Tank.titre = "Tank 1214";
+	Tank_Menu.7220_Tank.titre = "TK1229";
+	Tank_Menu.7212_Tank.titre = "TK1214";
 	filepath = "c:\claii\recipes_GA1_Plant.csv";
 endif;
