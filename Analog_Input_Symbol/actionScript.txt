@@ -2,22 +2,24 @@ dim graphicInfo as aaGraphic.GraphicInfo;
 
 graphicInfo.Identity = "I_"+TagRef;
 
-graphicInfo.GraphicName = "Analog_Input_Popup";
-
-graphicInfo.WindowTitle = "Analog Input Popup: "+TagRef;
-graphicInfo.HasTitleBar = false;
-'graphicInfo.HasCloseButton = false;
-
-'graphicInfo.WindowLocation = aaGraphic.WindowLocation.RightOf;
-
-'graphicInfo.WindowRelativePosition = aaGraphic.WindowRelativePosition.ParentElement;
-
-Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
-
+Dim cpValues [4] as aaGraphic.CustomPropertyValuePair;
 cpValues[1] = new aaGraphic.CustomPropertyValuePair("TagRef", TagRef, true);
 cpValues[2] = new aaGraphic.CustomPropertyValuePair("Precision", Precision, True);
 cpValues[3] = new aaGraphic.CustomPropertyValuePair("Access_Name", Access_Name, true);
 
-graphicInfo.CustomProperties = cpValues;
+if TagRef_2=="" then
+    graphicInfo.GraphicName = "Analog_Input_Popup";
+    graphicInfo.WindowTitle = "Analog Input Popup: "+TagRef;
+else
+    graphicInfo.GraphicName = "Analog_Input_Dual_Popup";
+    graphicInfo.WindowTitle = "Analog Input Dual Popup: " + TagRef + "/" + TagRef_2;
+    cpValues[4] = new aaGraphic.CustomPropertyValuePair("TagRef_2", TagRef_2, true);
+endif;
 
+graphicInfo.HasTitleBar = false;
+'graphicInfo.HasCloseButton = false;
+'graphicInfo.WindowLocation = aaGraphic.WindowLocation.RightOf;
+'graphicInfo.WindowRelativePosition = aaGraphic.WindowRelativePosition.ParentElement;
+
+graphicInfo.CustomProperties = cpValues;
 ShowGraphic( graphicInfo );
