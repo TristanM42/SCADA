@@ -34,11 +34,11 @@ SetCustomPropertyValue("wStatus",Nom,0);
 
 'Precision'
 if Precision == 0 then
-	Text_Value.Text = "#####";
+	Text_Value.TextFormat = "#####";
 elseif	Text_Value.Text == 1 then
-	Text_Value.Text = "#####.#";
+	Text_Value.TextFormat = "#####.#";
 elseif	Text_Value.Text == 2 then
-	Text_Value.Text = "####.##";
+	Text_Value.TextFormat = "####.##";
 elseif	Text_Value.Text == 3 then
-	Text_Value.Text = "##.###";
+	Text_Value.TextFormat = "##.###";
 endif;
