@@ -1,13 +1,16 @@
-Group_Delta.Text_Dual_Title.Text = TagRef + " / " + TagRef_2;
+Group_Delta.Text_Dual_Title.Text = TagRef_1 + " / " + TagRef_2;
 
 ' Set value unit
 dim Nom as string;
 if StringLen(Access_Name)>0 then
-	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput.EngUnits";
+	Nom = "InTouch:"+Access_Name+":"+TagRef_1+".q_rOutput.EngUnits";
 else
-	Nom = "InTouch:"+TagRef+".q_rOutput.EngUnits";	
+	Nom = "InTouch:"+TagRef_1+".q_rOutput.EngUnits";	
 endif;
 SetCustomPropertyValue("TagUnit",Nom,0);
+
+' Set icon
+type_ = StringLeft(TagRef_1, 1);
 
 'Precision'
 if Precision == 0 then
