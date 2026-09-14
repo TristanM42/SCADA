@@ -1,15 +1,63 @@
 Debug
     Log integer
         LogMessage("The Value of x is " + Text(x, "#"));
+Bits operations
+    Check if bit value at bit index if different than 0
+        dim bit_value as boolean;
+        dim bit_index;
+
+        for bit_index = 0 to 15 step 1;
+            bit_value = integer_word & (1 SHL bit_index);
+            LogMessage("DEBUG bit " + bit_index + " = " + bit_value);
+        next;
 Arrays
     Look at project://lib/stringArray.txt
     3 other possibilities (from Copilot) :
         Message arrays                  Sometimes       Best option if supported
-        Indirect tags (#Tag[Index])	    Often	        Very flexible
-        Manual sequential tags          Always	        Works everywhere
+        Indirect tags (#Tag[Index])        Often            Very flexible
+        Manual sequential tags          Always            Works everywhere
 String
     Parsing
         Look at project://lib/parseScript.txt
+    Replace line break with ";" (you must also create a custom property with the copy pasted new line as value)
+            Only one line break
+                dim Pos = 0;
+                dim Token_Left = "";
+                dim Token_Right = "";
+                
+                Pos = StringInString(description_, line_break, 1, 0);
+                'Ignore first match, start at second :
+                Pos = StringInString(description_, line_break, Pos + 1, 0);
+                
+                if Pos<>0 then
+                    Token_Left = StringLeft(description_, Pos - 1);
+                    Token_Right = StringRight(description_, StringLen(description_) - Pos - 1);
+                    description_ = Token_Left + " ; " + Token_Right;
+                endif;
+            For more than one : (nb_line_break)
+                dim Pos = 0;
+                dim Token_Left = "";
+                dim Token_Right = "";
+                
+                LogMessage("DEBUG DL_Line.remove_line_break : START");
+                'LogMessage("DEBUG DL_Line.remove_line_break : call = " + remove_line_break_cpt);
+                
+                while (remove_line_break_cpt < nb_line_break)
+                    Pos = StringInString(description_, line_break, 1, 0);
+                    'Pos = StringInString(description_, line_break, Pos + 1, 0);
+                
+                    if Pos<>0 then
+                        Token_Left = StringLeft(description_, Pos - 1);
+                        Token_Right = StringRight(description_, StringLen(description_) - Pos - 1);
+                        description_ = Token_Left + " ; " + Token_Right;
+                    endif;
+                
+                    remove_line_break_cpt = remove_line_break_cpt + 1;
+                    LogMessage("DEBUG DL_Line.remove_line_break : call = " + remove_line_break_cpt);
+                endwhile;
+                
+                remove_line_break_cpt = 0;
+                remove_line_break_emit = false;
 Read and write file
     dim offset;
     dim filename;
@@ -28,6 +76,32 @@ Write a tagname or more dynamically
     dim paramName as string;
     paramName = "myTagName";
     
-    tagFullName = "InTouch:" + paramName;	
+    tagFullName = "InTouch:" + paramName;    
     tagNamePtr.BindTo(tagFullName);
     tagNamePtr = Token;
+Show symbol by script, and with arguments
+    dim graphicInfo as aaGraphic.GraphicInfo;
+    
+    graphicInfo.GraphicName = "Recipes_GA2_help";
+    
+    Dim cpValues [1] as aaGraphic.CustomPropertyValuePair;
+    cpValues[1] = new aaGraphic.CustomPropertyValuePair("Gassing_Type", Gassing_Type, true);
+    graphicInfo.CustomProperties = cpValues;
+    
+    ShowGraphic(graphicInfo);
+Keep same center
+    Align elem2 with elem1
+        elem2.X + (elem1.With - elem2.Width)/2
+    With scaling (multiplyer maximize_k)
+        dim centering_x as float;
+        dim centering_y as float;
+        centering_x = Width*(1-maximize_k)/2;
+        centering_y = Height*(1-maximize_k)/2;
+        
+        ' Scale group
+        Width = Width * maximize_k;
+        Height = Height * maximize_k;
+        
+        ' Translate to keep same center
+        X = X + centering_x;
+        Y = Y + centering_y;
