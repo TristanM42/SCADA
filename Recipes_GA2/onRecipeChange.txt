@@ -2,7 +2,16 @@ Expression :    recipe
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
-if recipe<>"" then
-	Settings.Visible = true;
+if Recipe_Selection.Recipe_Buttons.recipe<>"" then
+	Recipe_Details.Visible = true;
     load_csv = true;
+    
+    {' Bind selected tank
+    dim Nom as string;
+    if StringLen(Access_Name)>0 then
+        Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
+    else
+        Nom = "InTouch:"+TagRef+".q_rOutput";	
+    endif;
+    SetCustomPropertyValue("q_rOutput",Nom,0);}
 endif;

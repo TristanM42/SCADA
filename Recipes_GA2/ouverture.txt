@@ -2,8 +2,6 @@ Délai des données : 500
 
 dim Nom as string;
 
-InTouch:popup_title = "";
-
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".IT_SRV:GA2_MEMU.xBtn_Init";
 else
@@ -15,25 +13,22 @@ SetCustomPropertyValue("initSequence",Nom,0);
 Tank_Menu.7220_Tank.hightLight = false;
 Tank_Menu.7212_Tank.hightLight = false;
 TagRef = "";
-Settings.bouton_Full_Batch.hightLight = false;
-Settings.bouton_Set_Recipe.hightLight = false;
-Recipe_Menu.Text_Recipe_Label.Visible = false;
-Recipe_Menu.7220_Recipe.recipe = "";
-Recipe_Menu.7212_Recipe.recipe = "";
-Recipe_Menu.7220_Recipe.Visible = false;
-Recipe_Menu.7212_Recipe.Visible = false;
-Settings.Visible = false;
+Recipe_Details.bouton_Full_Batch.hightLight = false;
+Recipe_Details.bouton_Set_Recipe.hightLight = false;
+Recipe_Selection.Text_Recipe_Label.Visible = false;
+Recipe_Selection.Recipe_Buttons.recipe = "";
+Recipe_Selection.Recipe_Buttons.Visible = false;
+Recipe_Details.Visible = false;
+wTank = 0;
 
-if Gassing_Type=="GA1" then
+filepath = "c:\claii\recipes_GA2.csv";
+{if Gassing_Type=="GA1" then
 	Tank_Menu.7220_Tank.titre = "TK7116";
 	Tank_Menu.7212_Tank.titre = "TK7123";
-	filepath = "c:\claii\recipes_GA1_MEMU.csv";
-elseif Gassing_Type=="GA2" then
-	Tank_Menu.7220_Tank.titre = "TK7220";
-	Tank_Menu.7212_Tank.titre = "TK7213";
-	filepath = "c:\claii\recipes_GA2.csv";
-elseif Gassing_Type=="GA1 Plant" then
+	filepath = "c:\claii\recipes_GA1_MEMU.csv";}
+'Gassing_Type=="GA2"
+{elseif Gassing_Type=="GA1 Plant" then
 	Tank_Menu.7220_Tank.titre = "TK1229";
 	Tank_Menu.7212_Tank.titre = "TK1214";
 	filepath = "c:\claii\recipes_GA1_Plant.csv";
-endif;
+endif;}
