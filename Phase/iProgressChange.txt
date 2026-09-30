@@ -1,7 +1,0 @@
-Expression :    iProgress
-Déclencheur :   Changement de valeur
-Bande morte :   0
-
-if Type_Consigne==1 then
-	progress = iProgress + " / " + iSP;
-endif;

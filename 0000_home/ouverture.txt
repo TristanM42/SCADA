@@ -1,1 +1,2 @@
 InTouch:Page_name = "0000_home"; ' Reset page name
+InTouch:page_name_str = "Home";

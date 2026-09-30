@@ -4,3 +4,9 @@ Bande morte :   0
 
 Tank_7220.status_active = (InTouch:GA2_Tank=="TK7220");
 Tank_7213.status_active = (InTouch:GA2_Tank=="TK7213");
+    
+if InTouch:GA2_Recipe<>"" then
+    dim datetime as string;
+    datetime = Now();
+    InTouch:GA2_recipe_record = InTouch:GA2_Tank + "_" + InTouch:GA2_Recipe + "_" + datetime;
+endif;
