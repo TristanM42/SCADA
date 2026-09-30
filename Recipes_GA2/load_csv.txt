@@ -27,8 +27,7 @@ dim tagName as indirect;
 dim line as integer;
 dim recipeHeaderLine as integer;
 dim tagNamesArray[32] as string;
-dim s as string;
-dim globalParamName as string;
+dim globalParamName as string; ' name of a CP in global section
 dim separator as string;
 
 separator = "|";
@@ -41,9 +40,9 @@ if load_csv_cnt == 1 then
 
         ' Parse la chaine de caractere
 
-        dim Pos = 0;
-        dim Token = "";
-        dim cpt = 1;
+        dim Pos = 0; ' separator position
+        dim Token = ""; ' line element before next separator
+        dim cpt = 1; ' Token position in current line
 
         ' Search for separator and process text before it
         Pos = StringInString(lineString, separator, 1, 0);
@@ -82,7 +81,7 @@ if load_csv_cnt == 1 then
                 if line>recipeHeaderLine+1 then
                     if cpt > 1 then
                         {
-                        ' Parse custom properties (CP), else bind PLC output
+                        ' Dynamic version : parse custom properties (CP), else bind PLC output
                         dim prefix = "";
                         prefix = StringLeft(tagNamesArray[cpt], 3);
                         LogMessage("DEBUG load_csv : prefix = " + prefix);
