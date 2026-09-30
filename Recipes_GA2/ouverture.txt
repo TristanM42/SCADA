@@ -2,6 +2,8 @@ Délai des données : 500
 
 dim Nom as string;
 
+InTouch:popup_title = "";
+
 if StringLen(Access_Name)>0 then
 	Nom = "InTouch:"+Access_Name+":"+TagRef+".IT_SRV:GA2_MEMU.xBtn_Init";
 else

@@ -102,17 +102,17 @@ if load_csv_cnt == 1 then
                         elseif cpt==3 then
                             SetCustomPropertyValue("Water_rTail_Error", Token, 1);
                         elseif cpt==4 then
-                            SetCustomPropertyValue("Water_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Water_w_Time_Step_On", Token, 1);
                         elseif cpt==5 then
                             SetCustomPropertyValue("Glycol_rSP", Token, 1);
                         elseif cpt==6 then
                             SetCustomPropertyValue("Glycol_rTail_Error", Token, 1);
                         elseif cpt==7 then
-                            SetCustomPropertyValue("Glycol_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Glycol_w_Time_Step_On", Token, 1);
                         elseif cpt==8 then
                             SetCustomPropertyValue("SN_rSP", Token, 1);
                         elseif cpt==9 then
-                            SetCustomPropertyValue("Agitation_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Agitation_wSP_Time", Token, 1);
                         elseif cpt==10 then
                             SetCustomPropertyValue("QC_rGA2_MEMU_QC_Densite", Token, 1);
                         endif;
