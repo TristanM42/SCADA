@@ -10,8 +10,8 @@ endif;
 SetCustomPropertyValue("initSequence",Nom,0);
 
 ' Reset buttons states and visibility
-Tank_Menu.7220_Tank.hightLight = false;
-Tank_Menu.7212_Tank.hightLight = false;
+Tank_Selection.TK7220.hightLight = false;
+Tank_Selection.TK7212.hightLight = false;
 TagRef = "";
 Recipe_Details.bouton_Full_Batch.hightLight = false;
 Recipe_Details.bouton_Set_Recipe.hightLight = false;
@@ -23,12 +23,12 @@ wTank = 0;
 
 filepath = "c:\claii\recipes_GA2.csv";
 {if Gassing_Type=="GA1" then
-	Tank_Menu.7220_Tank.titre = "TK7116";
-	Tank_Menu.7212_Tank.titre = "TK7123";
+	Tank_Selection.TK7220.titre = "TK7116";
+	Tank_Selection.TK7212.titre = "TK7123";
 	filepath = "c:\claii\recipes_GA1_MEMU.csv";}
 'Gassing_Type=="GA2"
 {elseif Gassing_Type=="GA1 Plant" then
-	Tank_Menu.7220_Tank.titre = "TK1229";
-	Tank_Menu.7212_Tank.titre = "TK1214";
+	Tank_Selection.TK7220.titre = "TK1229";
+	Tank_Selection.TK7212.titre = "TK1214";
 	filepath = "c:\claii\recipes_GA1_Plant.csv";
 endif;}

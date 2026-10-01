@@ -1,4 +1,4 @@
-Expression :    InTouch:GA2_Recipe
+Expression :    InTouch:popup_title
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
