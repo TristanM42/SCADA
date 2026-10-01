@@ -1,0 +1,44 @@
+dim Nom as string;
+
+if TagRef_2<>"" then
+	Tagname = TagRef + "/" + TagRef_2;
+else
+	Tagname = TagRef;
+endif;
+
+'PV tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput";
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput";	
+endif;
+SetCustomPropertyValue("PV",Nom,0);
+
+'PV tag unit'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_rOutput.EngUnits";
+else
+	Nom = "InTouch:"+TagRef+".q_rOutput.EngUnits";	
+endif;
+SetCustomPropertyValue("TagUnit",Nom,0);
+
+'wStatus tag ref'
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".q_wStatus";
+else
+	Nom = "InTouch:"+TagRef+".q_wStatus";	
+endif;
+SetCustomPropertyValue("wStatus",Nom,0);
+
+
+
+'Precision'
+if Precision == 0 then
+	Text_Value.TextFormat = "#####";
+elseif	Text_Value.Text == 1 then
+	Text_Value.TextFormat = "#####.#";
+elseif	Text_Value.Text == 2 then
+	Text_Value.TextFormat = "####.##";
+elseif	Text_Value.Text == 3 then
+	Text_Value.TextFormat = "##.###";
+endif;

@@ -1,0 +1,46 @@
+Group_Delta.Text_Dual_Title.Text = TagRef_1 + " / " + TagRef_2;
+
+' Set value unit
+dim Nom as string;
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef_1+".q_rOutput.EngUnits";
+else
+	Nom = "InTouch:"+TagRef_1+".q_rOutput.EngUnits";	
+endif;
+SetCustomPropertyValue("TagUnit",Nom,0);
+
+' Set icon
+type_ = StringLeft(TagRef_1, 1);
+
+'Precision'
+if Precision == 0 then
+	Group_Delta.Group_Average_Value.TextBox_Average_Value.TextFormat = "#####";
+	Group_Delta.Group_Delta_Value.TextBox_Delta_Value.TextFormat = "#####";
+	Group_Delta.Group_Delta_Threshold.TextBox_Value.TextFormat = "#####";
+	Group_Delta.Group_Delta_Delay.TextBox_Value.TextFormat = "#####";
+	Group_Delta.Group_Delta_Delay_Threshold.TextBox_Value.TextFormat = "#####";
+elseif Precision==2 then
+	Group_Delta.Group_Average_Value.TextBox_Average_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Value.TextBox_Delta_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Threshold.TextBox_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Delay.TextBox_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Delay_Threshold.TextBox_Value.TextFormat = "####.##";
+elseif Precision==1 then
+	Group_Delta.Group_Average_Value.TextBox_Average_Value.TextFormat = "#####.#";
+	Group_Delta.Group_Delta_Value.TextBox_Delta_Value.TextFormat = "#####.#";
+	Group_Delta.Group_Delta_Threshold.TextBox_Value.TextFormat = "#####.#";
+	Group_Delta.Group_Delta_Delay.TextBox_Value.TextFormat = "#####.#";
+	Group_Delta.Group_Delta_Delay_Threshold.TextBox_Value.TextFormat = "#####.#";
+elseif Precision==2 then
+	Group_Delta.Group_Average_Value.TextBox_Average_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Value.TextBox_Delta_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Threshold.TextBox_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Delay.TextBox_Value.TextFormat = "####.##";
+	Group_Delta.Group_Delta_Delay_Threshold.TextBox_Value.TextFormat = "####.##";
+elseif Precision==3 then
+	Group_Delta.Group_Average_Value.TextBox_Average_Value.TextFormat = "##.###";
+	Group_Delta.Group_Delta_Value.TextBox_Delta_Value.TextFormat = "##.###";
+	Group_Delta.Group_Delta_Threshold.TextBox_Value.TextFormat = "##.###";
+	Group_Delta.Group_Delta_Delay.TextBox_Value.TextFormat = "##.###";
+	Group_Delta.Group_Delta_Delay_Threshold.TextBox_Value.TextFormat = "##.###";
+endif;
