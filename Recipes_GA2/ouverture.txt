@@ -3,9 +3,9 @@ Délai des données : 500
 dim Nom as string;
 
 if StringLen(Access_Name)>0 then
-	Nom = "InTouch:"+Access_Name+":"+TagRef+".IT_SRV:GA2_MEMU.xBtn_Init";
+	Nom = "InTouch:"+Access_Name+":"+TagRef+".xBtn_Init";
 else
-	Nom = "InTouch:"+TagRef+".IT_SRV:GA2_MEMU.xBtn_Init";	
+	Nom = "InTouch:"+TagRef+".xBtn_Init";	
 endif;
 SetCustomPropertyValue("initSequence",Nom,0);
 

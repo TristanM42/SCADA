@@ -14,7 +14,7 @@ if InTouch:popup_title=="Set Recipe" then
         InTouch:IT_SRV:GA2_MEMU_Agitation.wSP_Time = Agitation_wSP_Time;
         InTouch:IT_SRV:rGA2_MEMU_QC_Densite = QC_rGA2_MEMU_QC_Densite;
         initSequence = true;
-        Sequence_wRecipe = TagRef_int;
+        InTouch:IT_SRV:GA2_MEMU.wRecipe = wTank;
         InTouch:GA2_Tank = TagRef;
         InTouch:GA2_Recipe = recipe;
 		InTouch:popup_title = "";

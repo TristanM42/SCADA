@@ -1,9 +1,10 @@
-Expression :    recipe
+Expression :    Recipe_Selection.Recipe_Buttons.recipe<>""
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
 if Recipe_Selection.Recipe_Buttons.recipe<>"" then
-	Recipe_Details.Visible = true;
+	recipe = Recipe_Selection.Recipe_Buttons.recipe;
+    Recipe_Details.Visible = true;
     load_csv = true;
     
     {' Bind selected tank
