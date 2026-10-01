@@ -20,15 +20,3 @@ Recipe_Selection.Recipe_Buttons.recipe = "";
 Recipe_Selection.Recipe_Buttons.Visible = false;
 Recipe_Details.Visible = false;
 wTank = 0;
-
-filepath = "c:\claii\recipes_GA2.csv";
-{if Gassing_Type=="GA1" then
-	Tank_Selection.TK7220.titre = "TK7116";
-	Tank_Selection.TK7212.titre = "TK7123";
-	filepath = "c:\claii\recipes_GA1_MEMU.csv";}
-'Gassing_Type=="GA2"
-{elseif Gassing_Type=="GA1 Plant" then
-	Tank_Selection.TK7220.titre = "TK1229";
-	Tank_Selection.TK7212.titre = "TK1214";
-	filepath = "c:\claii\recipes_GA1_Plant.csv";
-endif;}
