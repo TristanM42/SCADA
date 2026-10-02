@@ -2,19 +2,20 @@ Expression :    Sodium_Nitrite_bags_SP
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
-dim v_q as float; ' quantized final volume (= rounded down)
-dim v_a as float; ' available volume = max volume that can be filled
-dim v_sn_per_bag as float; ' Volume of Sodium Nitrite for one bag.
+'////////////////////////////////////////////////////////////////////////////////////////////////'
+				' Calcul des pourcentages des volumes en litres ' 
+dim v_q as float; ' quantized final volume (= rounded down) (litres)
+dim v_a as float; ' available volume = max volume that can be filled (litres)
+dim v_sn_per_bag as float; ' Volume of Sodium Nitrite for one bag. (litres)
 
-v_q = v_F_bag*Sodium_Nitrite_bags_SP;
-Water_SP = v_q*Water_rSP/100;
-Glycol_SP = v_q*Glycol_rSP/100;
-LogMessage("DEBUG : v_q = " + v_q);
-LogMessage("DEBUG : Water_SP = " + Water_SP);
-LogMessage("DEBUG : v_F_bag = " + v_F_bag);
-v_sn_per_bag = v_F_bag*SN_rSP/100;
+v_q = v_F_bag*Sodium_Nitrite_bags_SP; 'Volume final de mix pour un sac 
+Water_SP = v_q*Water_rSP/100; 'Calcul du setpoint d'eau en litres '
+Glycol_SP = v_q*Glycol_rSP/100; 'Calcul du setpoint de glycol en litres '
+
+v_sn_per_bag = v_F_bag*SN_rSP/100; 'Calcul du volume de SN pour le nombre de sac sélectionné dans la recette 
+'SN_rSP = proportion de SN en % ISSUE DE la recette csv'
 v_nsn = v_sn_per_bag * Sodium_Nitrite_bags_SP;
-
+'v_nsn = Calcul du volume de SN pour le nombre de sac sélectionné dans la recette 
 v_n = Water_SP + Glycol_SP + v_nsn;
 v_a = Tank_Max - (v_n + GA2_PV);
 if v_a < 0 then
@@ -23,21 +24,8 @@ if v_a < 0 then
     Glycol_SP = 0;
     v_nsn = 0;
     v_a = Tank_Max - GA2_PV;
-
-    dim graphicInfo as aaGraphic.GraphicInfo;
-    graphicInfo.GraphicName = "Alert_Popup";
-    graphicInfo.HasTitleBar = false;
-    Dim cpValues [3] as aaGraphic.CustomPropertyValuePair;
-    cpValues[1] = new aaGraphic.CustomPropertyValuePair("title", "Sodium Nitrite bags", true);
-    cpValues[2] = new aaGraphic.CustomPropertyValuePair("description_", "Result volume would exceed current Tank capacity. Try with less bags or use Full batch button.", true);
-    graphicInfo.CustomProperties = cpValues;
-    ShowGraphic( graphicInfo );
 endif;
-
-if Gassing_Type=="GA1 Plant" then
-	Glycol_SP = 0;
-endif;
-
+'////////////////////////////////////////////////////////////////////////////////////////////////'
 Water_str = "Water = " + Round(Water_SP,1) + " L";
 Glycol_str = "Glycol = " + Round(Glycol_SP,1) + " L";
 SN_str = "Sodium Nitrite = " + Round(v_nsn,1) + " L";

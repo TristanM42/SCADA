@@ -1,21 +1,22 @@
-Expression :    InTouch:GA2_Recipe
+Expression :    InTouch:popup_title
 Déclencheur :   Changement de valeur
 Bande morte :   0
 
 if InTouch:popup_title=="Set Recipe" then
     if InTouch:confirm_popup_result==true then    
-        Water_rTail_Error_A = Water_rTail_Error;
-        Glycol_rTail_Error_A = Glycol_rTail_Error;
-        Water_rSP_A = Water_SP;
-        Glycol_rSP_A = Glycol_SP;
-        SN_rSP_A = v_nsn;
-        Water_wDelay_StepOn_A = Water_wDelay_StepOn;
-        Glycol_wDelay_StepOn_A = Glycol_wDelay_StepOn;
-        Agitation_wDelay_StepOn_A = Agitation_wDelay_StepOn;
-        QC_rGA2_MEMU_QC_Densite_A = QC_rGA2_MEMU_QC_Densite;
+        InTouch:IT_SRV:GA2_MEMU_WATER.rTail_Error = Water_rTail_Error;
+        InTouch:IT_SRV:GA2_MEMU_GLYCOL.rTail_Error = Glycol_rTail_Error;
+        InTouch:IT_SRV:GA2_MEMU_WATER.rSP = Water_SP;
+        InTouch:IT_SRV:GA2_MEMU_GLYCOL.rSP = Glycol_SP;
+        InTouch:IT_SRV:GA2_MEMU_Sodium.rSP = Sodium_Nitrite_bags_SP;
+        InTouch:IT_SRV:GA2_MEMU_WATER.w_Time_Step_On = Water_w_Time_Step_On;
+        InTouch:IT_SRV:GA2_MEMU_GLYCOL.w_Time_Step_On = Glycol_w_Time_Step_On;
+        InTouch:IT_SRV:GA2_MEMU_Agitation.wSP_Time = Agitation_wSP_Time;
+        InTouch:IT_SRV:rGA2_MEMU_QC_Densite = QC_rGA2_MEMU_QC_Densite;
         initSequence = true;
-        Sequence_wRecipe = TagRef_int;
+        InTouch:IT_SRV:GA2_MEMU.wRecipe = wTank;
         InTouch:GA2_Tank = TagRef;
         InTouch:GA2_Recipe = recipe;
+		InTouch:popup_title = "";
     endif;
 endif;

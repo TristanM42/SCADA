@@ -27,8 +27,7 @@ dim tagName as indirect;
 dim line as integer;
 dim recipeHeaderLine as integer;
 dim tagNamesArray[32] as string;
-dim s as string;
-dim globalParamName as string;
+dim globalParamName as string; ' name of a CP in global section
 dim separator as string;
 
 separator = "|";
@@ -41,9 +40,9 @@ if load_csv_cnt == 1 then
 
         ' Parse la chaine de caractere
 
-        dim Pos = 0;
-        dim Token = "";
-        dim cpt = 1;
+        dim Pos = 0; ' separator position
+        dim Token = ""; ' line element before next separator
+        dim cpt = 1; ' Token position in current line
 
         ' Search for separator and process text before it
         Pos = StringInString(lineString, separator, 1, 0);
@@ -82,7 +81,7 @@ if load_csv_cnt == 1 then
                 if line>recipeHeaderLine+1 then
                     if cpt > 1 then
                         {
-                        ' Parse custom properties (CP), else bind PLC output
+                        ' Dynamic version : parse custom properties (CP), else bind PLC output
                         dim prefix = "";
                         prefix = StringLeft(tagNamesArray[cpt], 3);
                         LogMessage("DEBUG load_csv : prefix = " + prefix);
@@ -102,17 +101,17 @@ if load_csv_cnt == 1 then
                         elseif cpt==3 then
                             SetCustomPropertyValue("Water_rTail_Error", Token, 1);
                         elseif cpt==4 then
-                            SetCustomPropertyValue("Water_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Water_w_Time_Step_On", Token, 1);
                         elseif cpt==5 then
                             SetCustomPropertyValue("Glycol_rSP", Token, 1);
                         elseif cpt==6 then
                             SetCustomPropertyValue("Glycol_rTail_Error", Token, 1);
                         elseif cpt==7 then
-                            SetCustomPropertyValue("Glycol_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Glycol_w_Time_Step_On", Token, 1);
                         elseif cpt==8 then
                             SetCustomPropertyValue("SN_rSP", Token, 1);
                         elseif cpt==9 then
-                            SetCustomPropertyValue("Agitation_wDelay_StepOn", Token, 1);
+                            SetCustomPropertyValue("Agitation_wSP_Time", Token, 1);
                         elseif cpt==10 then
                             SetCustomPropertyValue("QC_rGA2_MEMU_QC_Densite", Token, 1);
                         endif;
