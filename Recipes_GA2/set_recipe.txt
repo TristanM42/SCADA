@@ -20,3 +20,7 @@ if InTouch:popup_title=="Set Recipe" then
 		InTouch:popup_title = "";
     endif;
 endif;
+
+if Confirm_Popup_Recipe.Tag_Yes==true
+then hideself();
+endif;
