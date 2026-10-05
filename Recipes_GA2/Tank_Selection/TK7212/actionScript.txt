@@ -1,0 +1,15 @@
+wTank = 7212;
+TagRef = titre;
+hightLight = not hightLight;
+Tank_Selection.TK7220.hightLight=false;
+
+' Get Tank current volume
+dim Nom as string;
+dim TagRef_Level as string;
+TagRef_Level = "LT7207";
+if StringLen(Access_Name)>0 then
+	Nom = "InTouch:"+Access_Name+":"+TagRef_Level+".q_rOutput";
+else
+	Nom = "InTouch:"+TagRef_Level+".q_rOutput";	
+endif;
+SetCustomPropertyValue("GA2_PV", Nom, 0);
