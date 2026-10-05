@@ -2,13 +2,6 @@ Délai des données : 500
 
 dim Nom as string;
 
-if StringLen(Access_Name)>0 then
-	Nom = "InTouch:"+Access_Name+":"+TagRef+".xBtn_Init";
-else
-	Nom = "InTouch:"+TagRef+".xBtn_Init";	
-endif;
-SetCustomPropertyValue("initSequence",Nom,0);
-
 ' Reset buttons states and visibility
 Tank_Selection.TK7220.hightLight = false;
 Tank_Selection.TK7212.hightLight = false;
