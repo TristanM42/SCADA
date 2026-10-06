@@ -2,6 +2,10 @@ Expression :    Confirm_Popup_Recipe.confirmed
 Déclencheur :   Si vrai
 Bande morte :   0
 
+dim datetime as string;
+dim Nom2 as string;
+datetime = Now();
+
 if Confirm_Popup_Recipe.Yes==true then
 	InTouch:IT_SRV:GA2_MEMU_WATER.rTail_Error = Water_rTail_Error;
 	InTouch:IT_SRV:GA2_MEMU_GLYCOL.rTail_Error = Glycol_rTail_Error;
@@ -17,8 +21,17 @@ if Confirm_Popup_Recipe.Yes==true then
 	InTouch:GA2_Tank = TagRef;
 	InTouch:GA2_Recipe = recipe;
 	InTouch:popup_title = "";
-endif;
-
-if Confirm_Popup_Recipe.Tag_Yes==true
-then hideself();
+	
+	' Save batch_ID (date, tank and recipe type)
+	if StringLen(Access_Name)>0 then
+		Nom2 = "InTouch:"+Access_Name+":"+"GA2_MEMU"+".SSequence_Name";
+	else
+		Nom2 = "InTouch:"+"GA2_MEMU"+".SSequence_Name";	
+	endif;
+	batch_ID = InTouch:$DateString + " " + InTouch:$TimeString + " " + TagRef + " " + recipe;
+	SetCustomPropertyValue("batch_ID", Nom2,0);
+	
+	if batch_ID<>0 
+		then HideSelf();
+	endif;
 endif;
