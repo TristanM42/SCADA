@@ -13,3 +13,6 @@ Recipe_Selection.Recipe_Buttons.recipe = "";
 Recipe_Selection.Recipe_Buttons.Visible = false;
 Recipe_Details.Visible = false;
 wTank = 0;
+Confirm_Popup_Recipe.Visible = false;
+batch_ID = "init";
+SetCustomPropertyValue("batch_ID", "InTouch:IT_SRV:GA2_MEMU.SSequence_Name",0);
