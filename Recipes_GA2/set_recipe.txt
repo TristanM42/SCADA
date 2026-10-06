@@ -20,7 +20,6 @@ if Confirm_Popup_Recipe.Yes==true then
 	InTouch:IT_SRV:GA2_MEMU.wRecipe = wTank;
 	InTouch:GA2_Tank = TagRef;
 	InTouch:GA2_Recipe = recipe;
-	InTouch:popup_title = "";
 	
 	' Save batch_ID (date, tank and recipe type)
 	if StringLen(Access_Name)>0 then
