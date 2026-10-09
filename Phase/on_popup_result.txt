@@ -4,13 +4,22 @@ Bande morte :   0
 
 if iStep == Sequence_Step and InTouch:popup_title==Popup_Title then
 	if Manual_Loading then
-		if Manual_Type==0 then
+		if Manual_Type==2 then 'bool
 			Step_Validated = InTouch:confirm_popup_result;
 		endif;
-		if Manual_Type==1 then
-			if InTouch:integer_popup_result==Manual_iSP then
+		if Manual_Type==1 then 'entier
+			iProgress =InTouch:integer_popup_result;
+			Step_Validated = true;
+			LogMessage("test log script Manual_Type==1");
+		endif;
+		if Manual_Type==0 then 'float
+			rProgress = InTouch:integer_popup_result;
+			if rProgress <> Manual_iSP then
+				Show_Popup = true;
+			else
 				Step_Validated = true;
 			endif;
+			LogMessage("test log script Manual_Type==0");
 		endif;
 	endif;
 endif;
